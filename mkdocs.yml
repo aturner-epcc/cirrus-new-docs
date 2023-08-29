@@ -14,13 +14,13 @@ extra_css:
   - stylesheets/archer2.css
 
 site_name: Cirrus new User Documentation
-repo_url: https://github.com/ARCHER2-HPC/cirrus-new-docs
-repo_name: ARCHER2-HPC/archer2-docs
+repo_url: https://github.com/EPCCed/cirrus-new-docs
+repo_name: EPCCed/cirrus-new-docs
 edit_uri: edit/main/docs/
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/ARCHER2-HPC
+      link: https://github.com/EPCCed
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/ARCHER2_HPC
     - icon: fontawesome/brands/linkedin
