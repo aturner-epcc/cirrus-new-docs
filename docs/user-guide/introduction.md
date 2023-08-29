@@ -21,24 +21,20 @@ You should also tag outputs with the keyword *Cirrus* whenever possible.
 
 Details of the Cirrus hardware are available on the Cirrus website:
 
--   [Cirrus Hardware](http://www.cirrus.ac.uk/about/hardware.html)
+- [Cirrus Hardware](http://www.cirrus.ac.uk/about/hardware.html)
 
 ## Useful terminology
 
 This is a list of terminology used throughout this guide and its
 meaning.
 
-CPUh
+CPUh  
+Cirrus CPU time is measured in CPUh. Each job you run on the service
+consumes CPUhs from your budget. You can find out more about CPUhs and
+how to track your usage in the `resource_management`
 
-:   Cirrus CPU time is measured in CPUh. Each job you run on the service
-    consumes CPUhs from your budget. You can find out more about CPUhs
-    and how to track your usage in the
-    `resource_management`{.interpreted-text role="doc"}
-
-GPUh
-
-:   Cirrus GPU time is measured in GPUh. Each job you run on the GPU
-    nodes consumes GPUhs from your budget, and requires positive CPUh,
-    even though these will not be consumed. You can find out more about
-    GPUhs and how to track your usage in the
-    `resource_management`{.interpreted-text role="doc"}
+GPUh  
+Cirrus GPU time is measured in GPUh. Each job you run on the GPU nodes
+consumes GPUhs from your budget, and requires positive CPUh, even though
+these will not be consumed. You can find out more about GPUhs and how to
+track your usage in the `resource_management`

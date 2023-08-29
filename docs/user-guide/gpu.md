@@ -6,8 +6,8 @@ hardware; it also covers how to compile and run standard GPU
 applications.
 
 The GPU cards on Cirrus do not support graphics rendering tasks; they
-are set to [compute cluster]{.title-ref} mode and so only support
-computational tasks.
+are set to <span class="title-ref">compute cluster</span> mode and so
+only support computational tasks.
 
 ## Hardware details
 
@@ -52,10 +52,10 @@ CUDA 11.8.
 Here is a list of available HPC SDK versions, and the corresponding
 version of CUDA:
 
-  Module                 Supported CUDA Version
-  ---------------------- ------------------------
-  `nvidia/nvhpc/22.11`   CUDA 11.8
-  `nvidia/nvhpc/22.2`    CUDA 11.6
+| Module               | Supported CUDA Version |
+|----------------------|------------------------|
+| `nvidia/nvhpc/22.11` | CUDA 11.8              |
+| `nvidia/nvhpc/22.2`  | CUDA 11.6              |
 
 To load the latest NVIDIA HPC SDK use
 
@@ -78,14 +78,18 @@ Compile your source code in the usual way.
 
     nvcc -arch=sm_70 -o cuda_test.x cuda_test.cu
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 The `-arch=sm_70` compile option ensures that the binary produced is
 compatible with the NVIDIA Volta architecture.
-:::
+
+</div>
 
 #### Using CUDA with Intel compilers
 
@@ -159,15 +163,19 @@ quality of service (QoS) as well as the number of GPUs required. You
 specify the number of GPU cards you want using the `--gres=gpu:N`
 option, where `N` is typically 1, 2 or 4.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 As there are 4 GPUs per node, each GPU is associated with 1/4 of the
 resources of the node, i.e., 10/40 physical cores and roughly 91/384 GB
 in host memory.
-:::
+
+</div>
 
 Allocations of host resources are made pro-rata. For example, if 2 GPUs
 are requested, `sbatch` will allocate 20 cores and around 190 GB of host
@@ -190,46 +198,45 @@ If more than one node is required, exclusive mode `--exclusive` and
 is, for example, not possible to request 6 GPUs other than via exclusive
 use of two nodes.
 
-::: warning
-::: title
+<div class="warning">
+
+<div class="title">
+
 Warning
-:::
+
+</div>
 
 In order to run jobs on the GPU nodes your budget must have positive GPU
 hours *and* positive CPU core hours associated with it. However, only
 your GPU hours will be consumed when running these jobs.
-:::
+
+</div>
 
 ### Partitions
 
 Your job script must specify a partition. The following table has a list
 of relevant GPU partition(s) on Cirrus.
 
-  ------------------------------------------------------------------------
-  Partition             Description                         Maximum Job
-                                                            Size (Nodes)
-  --------------------- ----------------------------------- --------------
-  gpu                   GPU nodes with Cascade Lake         36
-                        processors                          
+| Partition | Description                            | Maximum Job Size (Nodes) |
+|-----------|----------------------------------------|--------------------------|
+| gpu       | GPU nodes with Cascade Lake processors | 36                       |
 
-  ------------------------------------------------------------------------
-
-  : Cirrus Partitions
+Cirrus Partitions
 
 ### Quality of Service (QoS)
 
 Your job script must specify a QoS relevant for the GPU nodes. Available
 QoS specifications are as follows.
 
-  QoS Name      Jobs Running Per User   Jobs Queued Per User   Max Walltime   Max Size   Partition
-  ------------- ----------------------- ---------------------- -------------- ---------- -----------
-  gpu           No limit                128 jobs               4 days         64 GPUs    gpu
-  long          5 jobs                  20 jobs                14 days        8 GPUs     gpu
-  short         1 job                   2 jobs                 20 minutes     4 GPUs     gpu
-  lowpriority   No limit                100 jobs               2 days         16 GPUs    gpu
-  largescale    1 job                   4 jobs                 24 hours       144 GPUs   gpu
+| QoS Name    | Jobs Running Per User | Jobs Queued Per User | Max Walltime | Max Size | Partition |
+|-------------|-----------------------|----------------------|--------------|----------|-----------|
+| gpu         | No limit              | 128 jobs             | 4 days       | 64 GPUs  | gpu       |
+| long        | 5 jobs                | 20 jobs              | 14 days      | 8 GPUs   | gpu       |
+| short       | 1 job                 | 2 jobs               | 20 minutes   | 4 GPUs   | gpu       |
+| lowpriority | No limit              | 100 jobs             | 2 days       | 16 GPUs  | gpu       |
+| largescale  | 1 job                 | 4 jobs               | 24 hours     | 144 GPUs | gpu       |
 
-  : GPU QoS
+GPU QoS
 
 ## Examples
 

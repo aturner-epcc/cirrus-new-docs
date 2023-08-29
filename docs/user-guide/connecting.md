@@ -54,7 +54,7 @@ key:
     | ..              |
     +-----------------+
 
-(remember to replace \"<your@email.com>\" with your e-mail address).
+(remember to replace "<your@email.com>" with your e-mail address).
 
 ### Upload public part of key pair to SAFE
 
@@ -94,10 +94,13 @@ You may now change your password on the Cirrus machine itself using the
 change will not be reflected in the SAFE. If you forget your password,
 you should use the SAFE to request a new one-shot password.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 When you first log into Cirrus, you will be prompted to change your
 initial password. This is a three step process:
@@ -109,7 +112,8 @@ initial password. This is a three step process:
     password
 
 Your password has now been changed
-:::
+
+</div>
 
 ### Password Expiration
 
@@ -135,7 +139,7 @@ Linux distributions and MacOS each come installed with a terminal
 application that can be use for SSH access to the login nodes. Linux
 users will have different terminals depending on their distribution and
 window manager (e.g. GNOME Terminal in GNOME, Konsole in KDE). Consult
-your Linux distribution\'s documentation for details on how to load a
+your Linux distribution's documentation for details on how to load a
 terminal.
 
 MacOS users can use the Terminal application, located in the Utilities
@@ -151,10 +155,13 @@ key pair. Once you have entered your passphrase successfully, you will
 then be prompted for your password. You need to enter both correctly to
 be able to access Cirrus.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 If your SSH key pair is not stored in the default location (usually
 `~/.ssh/id_rsa`) on your local system, you may need to specify the path
@@ -162,7 +169,8 @@ to the private part of the key with the `-i` option to `ssh`. For
 example, if your key is in a file called `keys/id_rsa_cirrus` you would
 use the command `ssh -i keys/id_rsa_cirrus username@login.cirrus.ac.uk`
 to log in.
-:::
+
+</div>
 
 To allow remote programs, especially graphical applications to control
 your local display, such as being able to open up a new GUI window (such
@@ -177,7 +185,7 @@ Current MacOS systems do not have an X window system. Users should
 install the XQuartz package to allow for SSH with X11 forwarding on
 MacOS systems:
 
--   [XQuartz website](http://www.xquartz.org/)
+- [XQuartz website](http://www.xquartz.org/)
 
 ### Logging in from Windows using MobaXterm
 
@@ -190,14 +198,14 @@ any graphical applications on Cirrus.
 You can download MobaXterm Home Edition (Installer Edition) from the
 following link:
 
--   [Install
-    MobaXterm](http://mobaxterm.mobatek.net/download-home-edition.html)
+- [Install
+  MobaXterm](http://mobaxterm.mobatek.net/download-home-edition.html)
 
 Double-click the downloaded Microsoft Installer file (.msi), and the
 Windows wizard will automatically guides you through the installation
 process. Note, you might need to have administrator rights to install on
-some Windows OS. Also make sure to check whether Windows Firewall
-hasn\'t blocked any features of this program after installation.
+some Windows OS. Also make sure to check whether Windows Firewall hasn't
+blocked any features of this program after installation.
 
 Start MobaXterm using, for example, the icon added to the Start menu
 during the installation process.
@@ -228,11 +236,9 @@ instead of typing `ssh username@login.cirrus.ac.uk` to access the Cirrus
 login nodes, you could use `ssh cirrus` instead. The remaining lines
 define the options for the `cirrus` host.
 
-> -   `Hostname login.cirrus.ac.uk` - defines the full address of the
->     host
-> -   `User username` - defines the username to use by default for this
->     host (replace `username` with your own username on the remote
->     host)
+> - `Hostname login.cirrus.ac.uk` - defines the full address of the host
+> - `User username` - defines the username to use by default for this
+>   host (replace `username` with your own username on the remote host)
 
 Now you can use SSH to access Cirrus without needing to enter your
 username or the full hostname every time:
@@ -247,10 +253,13 @@ description of the SSH configuration file. You may find the
 pairs for different systems as this allows you to specify which SSH key
 to use for each system.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 There is a known bug with Windows ssh-agent. If you get the error
 message:
@@ -258,7 +267,8 @@ message:
 you will need to either specify the path to your ssh key in the command
 line (using the `-i` option as described above) or add the path to your
 SSH config file by using the `IdentityFile` option.
-:::
+
+</div>
 
 ## Accessing Cirrus from more than 1 machine
 
@@ -288,21 +298,19 @@ your secondary machine to Cirrus using:
 You should then log into Cirrus, as normal:
 `ssh <user>@login.cirrus.ac.uk`, and then:
 
--   check to see if the `.ssh` directory exists, using `ls -la ~`
--   if it doesn\'t, create it, and apply appropriate permissions:
+- check to see if the `.ssh` directory exists, using `ls -la ~`
+- if it doesn't, create it, and apply appropriate permissions:
 
-```{=html}
 <!-- -->
-```
+
     mkdir ~/.ssh
     chmod 700 ~/.ssh
 
--   and then create an authorized_keys file, and add the public key from
-    your secondary machine in one go:
+- and then create an authorized_keys file, and add the public key from
+  your secondary machine in one go:
 
-```{=html}
 <!-- -->
-```
+
     cat ~/id_secondary.pub >> ~/.ssh/authorized_keys
     chmod 600 ~/.ssh/authorized_keys
     rm ~/id_secondary.pub
@@ -310,9 +318,9 @@ You should then log into Cirrus, as normal:
 You can then repeat this process for any more local machines you want to
 access Cirrus from, omitting the `mkdir` and `chmod` lines as the
 relevant files and directories will already exist with the correct
-permissions. You don\'t need to add the public key from your primary
-machine in your [authorized_keys]{.title-ref} file, because Cirrus can
-find this in SAFE.
+permissions. You don't need to add the public key from your primary
+machine in your <span class="title-ref">authorized_keys</span> file,
+because Cirrus can find this in SAFE.
 
 Note that the permissions on the `.ssh` directory must be set to 700
 (Owner can read, can write and can execute but group and world do not
@@ -324,7 +332,7 @@ ignored if this is not the case.
 
 If you want to access Cirrus from a machine you already access remotely
 (e.g. to copy data from Cirrus onto a different cluster), you can
-*forward* your local Cirrus SSH keys so that you don\'t need to create a
+*forward* your local Cirrus SSH keys so that you don't need to create a
 new key pair on the intermediate machine.
 
 If your local machine is MacOS or Linus, add your Cirrus SSH key to the
@@ -335,7 +343,7 @@ SSH Agent:
 
 (If you created your key with a different name, replace `id_rsa` in the
 command with the name of your private key file). You will be prompted
-for your SSH key\'s passphrase.
+for your SSH key's passphrase.
 
 You can then use the `-A` flag when connecting to your intermediate
 cluster:
@@ -362,91 +370,121 @@ connect to the login node, the output should include:
     --- login.dyn.cirrus.ac.uk ping statistics ---
     3 packets transmitted, 3 received, 0% packet loss, time 38ms
 
-(the ping time \'38ms\' is not important). If not all packets are
-received there could be a problem with your internet connection, or the
-login node could be unavailable.
+(the ping time '38ms' is not important). If not all packets are received
+there could be a problem with your internet connection, or the login
+node could be unavailable.
 
 ### SSH key
 
 If you get the error message `Permission denied (publickey)` this can
 indicate a problem with your SSH key. Some things to check:
 
-> -   Have you uploaded the key to SAFE? Please note that if the same
->     key is reuploaded SAFE will not map the \"new\" key to cirrus. If
->     for some reason this is required, please delete the key first,
->     then reupload.
+> - Have you uploaded the key to SAFE? Please note that if the same key
+>   is reuploaded SAFE will not map the "new" key to cirrus. If for some
+>   reason this is required, please delete the key first, then reupload.
 >
-> -   Is ssh using the correct key? You can check which keys are being
->     found and offered by ssh using `ssh -vvv`. If your private key has
->     a non-default name you can use the `-i` flag to provide it to ssh,
->     i.e. `ssh -i path/to/key username@login.cirrus.ac.uk`.
+> - Is ssh using the correct key? You can check which keys are being
+>   found and offered by ssh using `ssh -vvv`. If your private key has a
+>   non-default name you can use the `-i` flag to provide it to ssh,
+>   i.e. `ssh -i path/to/key username@login.cirrus.ac.uk`.
 >
-> -   Are you entering the passphrase correctly? You will be asked for
->     your private key\'s passphrase first. If you enter it incorrectly
->     you will usually be asked to enter it again, and usually up to
->     three times in total, after which ssh will fail with
->     `Permission denied (publickey)`. If you would like to confirm your
->     passphrase without attempting to connect, you can use
->     `ssh-keygen -y -f /path/to/private/key`. If successful, this
->     command will print the corresponding public key. You can also use
->     this to check it is the one uploaded to SAFE.
+> - Are you entering the passphrase correctly? You will be asked for
+>   your private key's passphrase first. If you enter it incorrectly you
+>   will usually be asked to enter it again, and usually up to three
+>   times in total, after which ssh will fail with
+>   `Permission denied (publickey)`. If you would like to confirm your
+>   passphrase without attempting to connect, you can use
+>   `ssh-keygen -y -f /path/to/private/key`. If successful, this command
+>   will print the corresponding public key. You can also use this to
+>   check it is the one uploaded to SAFE.
 >
-> -   Are permissions correct on the ssh key? One common issue is that
->     the permissions are incorrect on the either the key file, or the
->     directory it\'s contained in. On Linux/MacOS for example, if your
->     private keys are held in `~/.ssh/` you can check this with
->     `ls -al ~/.ssh`. This should give something similar to the
->     following output:
+> - Are permissions correct on the ssh key? One common issue is that the
+>   permissions are incorrect on the either the key file, or the
+>   directory it's contained in. On Linux/MacOS for example, if your
+>   private keys are held in `~/.ssh/` you can check this with
+>   `ls -al ~/.ssh`. This should give something similar to the following
+>   output:
 >
->         $ ls -al ~/.ssh/
->         drwx------.  2 user group    48 Jul 15 20:24 .
->         drwx------. 12 user group  4096 Oct 13 12:11 ..
->         -rw-------.  1 user group   113 Jul 15 20:23 authorized_keys
->         -rw-------.  1 user group 12686 Jul 15 20:23 id_rsa
->         -rw-r--r--.  1 user group  2785 Jul 15 20:23 id_rsa.pub
->         -rw-r--r--.  1 user group  1967 Oct 13 14:11 known_hosts
+>       $ ls -al ~/.ssh/
+>       drwx------.  2 user group    48 Jul 15 20:24 .
+>       drwx------. 12 user group  4096 Oct 13 12:11 ..
+>       -rw-------.  1 user group   113 Jul 15 20:23 authorized_keys
+>       -rw-------.  1 user group 12686 Jul 15 20:23 id_rsa
+>       -rw-r--r--.  1 user group  2785 Jul 15 20:23 id_rsa.pub
+>       -rw-r--r--.  1 user group  1967 Oct 13 14:11 known_hosts
 >
->     The important section here is the string of letters and dashes at
->     the start, for the lines ending in `.`, `id_rsa`, and
->     `id_rsa.pub`, which indicate permissions on the containing
->     directory, private key, and public key respectively. If your
->     permissions are not correct, they can be set with `chmod`. Consult
->     the table below for the relevant `chmod` command. On Windows,
->     permissions are handled differently but can be set by
->     right-clicking on the file and selecting Properties \> Security \>
->     Advanced. The user, SYSTEM, and Administrators should have
->     `Full control`, and no other permissions should exist for both
->     public and private key files, and the containing folder.
+>   The important section here is the string of letters and dashes at
+>   the start, for the lines ending in `.`, `id_rsa`, and `id_rsa.pub`,
+>   which indicate permissions on the containing directory, private key,
+>   and public key respectively. If your permissions are not correct,
+>   they can be set with `chmod`. Consult the table below for the
+>   relevant `chmod` command. On Windows, permissions are handled
+>   differently but can be set by right-clicking on the file and
+>   selecting Properties \> Security \> Advanced. The user, SYSTEM, and
+>   Administrators should have `Full control`, and no other permissions
+>   should exist for both public and private key files, and the
+>   containing folder.
 
-+-------------+----------------+----------------+
-| Target      | Permissions    | `chmod` Code   |
-+=============+================+================+
-| Directory   | `drwx------`   | > 700          |
-+-------------+----------------+----------------+
-| Private Key | `-rw-------`   | > 600          |
-+-------------+----------------+----------------+
-| Public Key  | `-rw-r--r--`   | > 644          |
-+-------------+----------------+----------------+
+<table style="width:67%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Target</th>
+<th>Permissions</th>
+<th><code>chmod</code> Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Directory</td>
+<td><code>drwx------</code></td>
+<td><blockquote>
+<p>700</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td>Private Key</td>
+<td><code>-rw-------</code></td>
+<td><blockquote>
+<p>600</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td>Public Key</td>
+<td><code>-rw-r--r--</code></td>
+<td><blockquote>
+<p>644</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 `chmod` can be used to set permissions on the target in the following
 way: `chmod <code> <target>`. So for example to set correct permissions
 on the private key file `id_rsa_cirrus` one would use the command
 `chmod 600 id_rsa_cirrus`.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 Unix file permissions can be understood in the following way. There are
 three groups that can have file permissions: (owning) *users*, (owning)
 *groups*, and *others*. The available permissions are *read*, *write*,
 and *execute*. The first character indicates whether the target is a
 file `-`, or directory `d`. The next three characters indicate the
-owning user\'s permissions. The first character is `r` if they have read
-permission, `-` if they don\'t, the second character is `w` if they have
-write permission, `-` if they don\'t, the third character is `x` if they
-have execute permission, `-` if they don\'t. This pattern is then
+owning user's permissions. The first character is `r` if they have read
+permission, `-` if they don't, the second character is `w` if they have
+write permission, `-` if they don't, the third character is `x` if they
+have execute permission, `-` if they don't. This pattern is then
 repeated for *group*, and *other* permissions. For example the pattern
 `-rw-r--r--` indicates that the owning user can read and write the file,
 members of the owning group can read it, and anyone else can also read
@@ -454,7 +492,8 @@ it. The `chmod` codes are constructed by treating the user, group, and
 owner permission strings as binary numbers, then converting them to
 decimal. For example the permission string `-rwx------` becomes
 `111 000 000` -\> `700`.
-:::
+
+</div>
 
 ### Password
 
@@ -466,8 +505,8 @@ instructions for doing so can be found
 
 Windows users please note that `Ctrl+V` does not work to paste in to
 PuTTY, MobaXterm, or PowerShell. Instead use `Shift+Ins` to paste.
-Alternatively, right-click and select \'Paste\' in PuTTY and MobaXterm,
-or simply right-click to paste in PowerShell.
+Alternatively, right-click and select 'Paste' in PuTTY and MobaXterm, or
+simply right-click to paste in PowerShell.
 
 ### SSH verbose output
 
@@ -523,7 +562,7 @@ an HPC system, loading modules.
 Cirrus does not currently read the `$HOME/.bashrc` file, but it does
 read the `$HOME/.bash_profile` file, so, if you wish to read a
 `$HOME/.bashrc` file, you can add the following to your
-`$HOME/.bash_profile` file (or create one, if it doesn\'t exist):
+`$HOME/.bash_profile` file (or create one, if it doesn't exist):
 
     # $HOME/.bash_profile
     # load $HOME/.bashrc, if it exists

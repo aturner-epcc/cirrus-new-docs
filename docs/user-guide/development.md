@@ -18,7 +18,7 @@ By default, all users on Cirrus start with no modules loaded.
 Basic usage of the `module` command on Cirrus is covered below. For full
 documentation please see:
 
--   [Linux manual page on modules](http://linux.die.net/man/1/module)
+- [Linux manual page on modules](http://linux.die.net/man/1/module)
 
 ## Using the modules environment
 
@@ -100,7 +100,7 @@ loaded. There are many situations in which you might want to change the
 presently loaded version to a different one, such as trying the latest
 version which is not yet the default or using a legacy version to keep
 compatibility with old data. This can be achieved most easily by using
-\"module swap oldmodule newmodule\".
+"module swap oldmodule newmodule".
 
 Suppose you have loaded version 18 of the Intel compilers; the following
 command will change to version 19:
@@ -109,15 +109,19 @@ command will change to version 19:
 
 ## Available Compiler Suites
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 As Cirrus uses dynamic linking by default you will generally also need
 to load any modules you used to compile your code in your job submission
 script when you run your code.
-:::
+
+</div>
 
 ### Intel Compiler Suite
 
@@ -129,9 +133,9 @@ example, to load the 2019 release, you would run:
 
 Once you have loaded the module, the compilers are available as:
 
--   `ifort` - Fortran
--   `icc` - C
--   `icpc` - C++
+- `ifort` - Fortran
+- `icc` - C
+- `icpc` - C++
 
 See the extended section below for further details of available Intel
 compiler versions and tools.
@@ -146,9 +150,9 @@ run:
 
 Once you have loaded the module, the compilers are available as:
 
--   `gfortran` - Fortran
--   `gcc` - C
--   `g++` - C++
+- `gfortran` - Fortran
+- `gcc` - C
+- `g++` - C++
 
 ## Compiling MPI codes
 
@@ -157,20 +161,24 @@ MPI on Cirrus is currently provided by the HPE MPT library.
 You should also consult the chapter on running jobs through the batch
 system for examples of how to run jobs compiled against MPI.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 By default, all compilers produce dynamic executables on Cirrus. This
 means that you must load the same modules at runtime (usually in your
 job submission script) as you have loaded at compile time.
-:::
+
+</div>
 
 ### Using HPE MPT
 
 To compile MPI code with HPE MPT, using any compiler, you must first
-load the \"mpt\" module.
+load the "mpt" module.
 
     module load mpt
 
@@ -180,24 +188,32 @@ available to you.
 What you do next depends on which compiler (Intel or GCC) you wish to
 use to compile your code.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 We recommend that you use the Intel compiler wherever possible to
 compile MPI applications as this is the method officially supported and
 tested by HPE.
-:::
 
-::: note
-::: title
+</div>
+
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 You can always check which compiler the MPI compiler wrapper scripts are
 using with, for example, `mpicc -v` or `mpif90 -v`.
-:::
+
+</div>
 
 #### Using Intel Compilers and HPE MPT
 
@@ -208,14 +224,17 @@ compilers module you intend to use (e.g. `intel-compilers-19`):
 
 The compiler wrappers are then available as
 
--   `mpif90` - Fortran with MPI
--   `mpicc` - C with MPI
--   `mpicxx` - C++ with MPI
+- `mpif90` - Fortran with MPI
+- `mpicc` - C with MPI
+- `mpicxx` - C++ with MPI
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 The MPT compiler wrappers use GCC by default rather than the Intel
 compilers:
@@ -233,7 +252,8 @@ and/or `MPICXX=icpc` to ensure the correct base compiler is used:
 
     export MPICC_CC=icc
     export MPICXX_CXX=icpc
-:::
+
+</div>
 
 #### Using GCC Compilers and HPE MPT
 
@@ -244,20 +264,24 @@ module:
 
 Compilers are then available as
 
--   `mpif90` - Fortran with MPI
--   `mpicc` - C with MPI
--   `mpicxx` - C++ with MPI
+- `mpif90` - Fortran with MPI
+- `mpicc` - C with MPI
+- `mpicxx` - C++ with MPI
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 HPE MPT does not support the syntax `use mpi` in Fortran applications
 with the GCC compiler `gfortran`. You should use the older
 `include "mpif.h"` syntax when using GCC compilers with `mpif90`. If you
 cannot change this, then use the Intel compilers with MPT.
-:::
+
+</div>
 
 ### Using Intel MPI
 
@@ -273,19 +297,26 @@ Intel MPI depends on whether you are using the Intel compilers or GCC.
 You should make sure that you or any tools use the correct ones when
 building software.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 Although Intel MPI is available on Cirrus, HPE MPT remains the
 recommended and default MPI library to use when building applications.
-:::
 
-::: note
-::: title
+</div>
+
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 Using Intel MPI 18 can cause warnings in your output similar to
 `no hfi units are available` or
@@ -295,17 +326,22 @@ ignored, or, if you would prefer to prevent them, you may add the line
     export I_MPI_FABRICS=shm:ofa
 
 to your job scripts after loading the Intel MPI 18 module.
-:::
 
-::: note
-::: title
+</div>
+
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 When using Intel MPI 18, you should always launch MPI tasks with `srun`,
 the supported method on Cirrus. Launches with `mpirun` or `mpiexec` will
 likely fail.
-:::
+
+</div>
 
 #### Using Intel Compilers and Intel MPI
 
@@ -316,9 +352,9 @@ After first loading Intel MPI, you should next load the appropriate
 
 You may then use the following MPI compiler wrappers:
 
--   `mpiifort` - Fortran with MPI
--   `mpiicc` - C with MPI
--   `mpiicpc` - C++ with MPI
+- `mpiifort` - Fortran with MPI
+- `mpiicc` - C with MPI
+- `mpiicpc` - C++ with MPI
 
 #### Using GCC Compilers and Intel MPI
 
@@ -329,21 +365,19 @@ to use:
 
 You may then use these MPI compiler wrappers:
 
--   `mpif90` - Fortran with MPI
--   `mpicc` - C with MPI
--   `mpicxx` - C++ with MPI
+- `mpif90` - Fortran with MPI
+- `mpicc` - C with MPI
+- `mpicxx` - C++ with MPI
 
 ## Compiler Information and Options
 
 The manual pages for the different compiler suites are available:
 
-GCC
+GCC  
+Fortran `man gfortran` , C/C++ `man gcc`
 
-:   Fortran `man gfortran` , C/C++ `man gcc`
-
-Intel
-
-:   Fortran `man ifort` , C/C++ `man icc`
+Intel  
+Fortran `man ifort` , C/C++ `man icc`
 
 ### Useful compiler options
 
@@ -351,13 +385,11 @@ Whilst difference codes will benefit from compiler optimisations in
 different ways, for reasonable performance on Cirrus, at least
 initially, we suggest the following compiler options:
 
-Intel
+Intel  
+`-O2`
 
-:   `-O2`
-
-GNU
-
-:   `-O2 -ftree-vectorize -funroll-loops -ffast-math`
+GNU  
+`-O2 -ftree-vectorize -funroll-loops -ffast-math`
 
 When you have a application that you are happy is working correctly and
 has reasonable performance you may wish to investigate some more
@@ -367,37 +399,31 @@ optimisations may result in incorrect output for programs that depend on
 an exact implementation of IEEE or ISO rules/specifications for math
 functions):
 
-Intel
+Intel  
+`-fast`
 
-:   `-fast`
-
-GNU
-
-:   `-Ofast -funroll-loops`
+GNU  
+`-Ofast -funroll-loops`
 
 Vectorisation, which is one of the important compiler optimisations for
 Cirrus, is enabled by default as follows:
 
-Intel
+Intel  
+At `-O2` and above
 
-:   At `-O2` and above
-
-GNU
-
-:   At `-O3` and above or when using `-ftree-vectorize`
+GNU  
+At `-O3` and above or when using `-ftree-vectorize`
 
 To promote integer and real variables from four to eight byte precision
 for Fortran codes the following compiler flags can be used:
 
-Intel
+Intel  
+`-real-size 64 -integer-size 64 -xAVX` (Sometimes the Intel compiler
+incorrectly generates AVX2 instructions if the `-real-size 64` or `-r8`
+options are set. Using the `-xAVX` option prevents this.)
 
-:   `-real-size 64 -integer-size 64 -xAVX` (Sometimes the Intel compiler
-    incorrectly generates AVX2 instructions if the `-real-size 64` or
-    `-r8` options are set. Using the `-xAVX` option prevents this.)
-
-GNU
-
-:   `-freal-4-real-8 -finteger-4-integer-8`
+GNU  
+`-freal-4-real-8 -finteger-4-integer-8`
 
 ## Using static linking/libraries
 
@@ -444,10 +470,10 @@ A full list is available via `module avail intel`.
 
 The different available compiler versions are:
 
--   `intel-*/18.0.5.274` Intel 2018 Update 4
--   `intel-*/19.0.0.117` Intel 2019 Initial release
--   `intel-19.5/*` Intel 2019 Update 5
--   `intel-20.4/*` Intel 2020 Update 4
+- `intel-*/18.0.5.274` Intel 2018 Update 4
+- `intel-*/19.0.0.117` Intel 2019 Initial release
+- `intel-19.5/*` Intel 2019 Update 5
+- `intel-20.4/*` Intel 2020 Update 4
 
 We recommend the most up-to-date version in the first instance, unless
 you have particular reasons for preferring an older version.
@@ -457,14 +483,14 @@ page](https://software.intel.com/content/www/us/en/develop/articles/intel-compil
 
 The different module names (or parts thereof) indicate:
 
--   `cc` C/C++ compilers only
--   `cmkl` MKL libraries (see Software Libraries section)
--   `compilers` Both C/C++ and Fortran compilers
--   `fc` Fortran compiler only
--   `itac` Intel Trace Analyze and Collector
--   `mpi` Intel MPI
--   `pxse` Intel Parallel Studio (all Intel modules)
--   `tbb` Thread Building Blocks
--   `vtune` VTune profiler - note that in older versions
-    (`intel-*/18.0.5.274`, `intel-*/19.0.0.117` VTune is launched as
-    `amplxe-gui` for GUI or `amplxe-cl` for CLI use)
+- `cc` C/C++ compilers only
+- `cmkl` MKL libraries (see Software Libraries section)
+- `compilers` Both C/C++ and Fortran compilers
+- `fc` Fortran compiler only
+- `itac` Intel Trace Analyze and Collector
+- `mpi` Intel MPI
+- `pxse` Intel Parallel Studio (all Intel modules)
+- `tbb` Thread Building Blocks
+- `vtune` VTune profiler - note that in older versions
+  (`intel-*/18.0.5.274`, `intel-*/19.0.0.117` VTune is launched as
+  `amplxe-gui` for GUI or `amplxe-cl` for CLI use)

@@ -12,36 +12,33 @@ In all cases of data transfer, users should use the Cirrus login nodes.
 The Cirrus service, like many HPC systems, has a complex structure.
 There are a number of different data storage types available to users:
 
--   Home file system
--   Work file systems
--   Solid state storage
+- Home file system
+- Work file systems
+- Solid state storage
 
 Each type of storage has different characteristics and policies, and is
 suitable for different types of use.
 
 There are also two different types of node available to users:
 
--   Login nodes
--   Compute nodes
+- Login nodes
+- Compute nodes
 
 Each type of node sees a different combination of the storage types. The
 following table shows which storage options are available on different
 node types:
 
-  ------------- ------------- --------------- -------------
-  Storage       Login nodes   Compute nodes   Notes
-
-  Home          yes           no              No backup
-
-  Work          yes           yes             No backup
-
-  Solid state   yes           yes             No backup
-  ------------- ------------- --------------- -------------
+|             |             |               |           |
+|-------------|-------------|---------------|-----------|
+| Storage     | Login nodes | Compute nodes | Notes     |
+| Home        | yes         | no            | No backup |
+| Work        | yes         | yes           | No backup |
+| Solid state | yes         | yes           | No backup |
 
 ### Home file system
 
 Every project has an allocation on the home file system and your
-project\'s space can always be accessed via the path
+project's space can always be accessed via the path
 `/home/[project-code]`. The home file system is approximately 1.5 PB in
 size and is implemented using the Ceph technology. This means that this
 storage is not particularly high performance but are well suited to
@@ -61,8 +58,8 @@ logging into SAFE and navigating to the page for your Cirrus login
 account.
 
 1.  [Log into SAFE](https://safe.epcc.ed.ac.uk)
-2.  Use the \"Login accounts\" menu and select your Cirrus login account
-3.  The \"Login account details\" table lists any user or group quotas
+2.  Use the "Login accounts" menu and select your Cirrus login account
+3.  The "Login account details" table lists any user or group quotas
     that are linked with your account. (If there is no quota shown for a
     row then you have an unlimited quota for that item, but you may
     still may be limited by another quota.)
@@ -103,7 +100,7 @@ A full path name can be specified if required.
 ### Work file system
 
 Every project has an allocation on the work file system and your
-project\'s space can always be accessed via the path
+project's space can always be accessed via the path
 `/work/[project-code]`. The work file system is approximately 400 TB in
 size and is implemented using the Lustre parallel file system
 technology. They are designed to support data in large files. The
@@ -114,9 +111,9 @@ There are currently no backups of any data on the work file system.
 
 Ideally, the work file system should only contain data that is:
 
--   actively in use;
--   recently generated and in the process of being saved elsewhere; or
--   being made ready for up-coming work.
+- actively in use;
+- recently generated and in the process of being saved elsewhere; or
+- being made ready for up-coming work.
 
 In practice it may be convenient to keep copies of datasets on the work
 file system that you know will be needed at a later date. However, make
@@ -129,15 +126,19 @@ in the future please delete it.
 
 #### Quotas on the work file system
 
-::: tip
-::: title
+<div class="tip">
+
+<div class="title">
+
 Tip
-:::
+
+</div>
 
 The capacity of the home file system is much larger than the work file
 system so you should store most data on home and only move data to work
 that you need for current running work.
-:::
+
+</div>
 
 As for the home file system, all projects are assigned a quota on the
 work file system. The project PI or manager can split this quota up
@@ -148,8 +149,8 @@ logging into SAFE and navigating to the page for your Cirrus login
 account.
 
 1.  [Log into SAFE](https://safe.epcc.ed.ac.uk)
-2.  Use the \"Login accounts\" menu and select your Cirrus login account
-3.  The \"Login account details\" table lists any user or group quotas
+2.  Use the "Login accounts" menu and select your Cirrus login account
+3.  The "Login account details" table lists any user or group quotas
     that are linked with your account. (If there is no quota shown for a
     row then you have an unlimited quota for that item, but you may
     still may be limited by another quota.)
@@ -189,8 +190,7 @@ the limit of `13.57T` indicates the quota for the group.
 ### Solid state storage
 
 More information on using the solid state storage can be found in the
-`/user-guide/solidstate`{.interpreted-text role="doc"} section of the
-user guide.
+`/user-guide/solidstate` section of the user guide.
 
 The solid state storage is not backed up.
 
@@ -222,20 +222,24 @@ running:
 Note that the project code appears once in the path for the old home
 archive and twice in the path on the new /home file system.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 The capacity of the home file system is much larger than the work file
 system so you should move data to home rather than work.
-:::
+
+</div>
 
 ## Data transfer
 
 ### Before you start
 
-Read Harry Mangalam\'s guide on [How to transfer large amounts of data
+Read Harry Mangalam's guide on [How to transfer large amounts of data
 via
 network](https://hjmangalam.wordpress.com/2009/09/14/how-to-transfer-large-amounts-of-data-via-network/).
 This tells you *all* you want to know about transferring data.
@@ -250,8 +254,7 @@ via the command line, you will be prompted for your password for the
 specified account on the **remote machine**.
 
 To avoid having to type in your password multiple times you can set up a
-*ssh-key* as documented in the User Guide at
-`connecting`{.interpreted-text role="doc"}
+*ssh-key* as documented in the User Guide at `connecting`
 
 ### SSH Transfer Performance Considerations
 
@@ -272,12 +275,12 @@ overlap transfers of files from different directories.
 
 In addition, you should consider the following when transferring data.
 
--   Only transfer those files that are required. Consider which data you
-    really need to keep.
--   Combine lots of small files into a single *tar* archive, to reduce
-    the overheads associated in initiating many separate data transfers
-    (over SSH each file counts as an individual transfer).
--   Compress data before sending it, e.g. using gzip.
+- Only transfer those files that are required. Consider which data you
+  really need to keep.
+- Combine lots of small files into a single *tar* archive, to reduce the
+  overheads associated in initiating many separate data transfers (over
+  SSH each file counts as an individual transfer).
+- Compress data before sending it, e.g. using gzip.
 
 ### scp command
 
@@ -292,7 +295,7 @@ For example, to transfer files to Cirrus:
 above.)
 
 In the above example, the `[destination]` is optional, as when left out
-`scp` will simply copy the source into the user\'s home directory. Also
+`scp` will simply copy the source into the user's home directory. Also
 the `source` should be the absolute path of the file/directory being
 copied or the command should be executed in the directory containing the
 source file/directory.

@@ -1,4 +1,4 @@
-![image](images/epcc_uoe_epsrc.png){.align-right}
+<img src="images/epcc_uoe_epsrc.png" class="align-right" alt="image" />
 
 # Cirrus
 
@@ -20,14 +20,14 @@ four NVIDIA Tesla V100-SXM2-16GB (Volta) GPU accelerators connected to
 the host processors and each other via PCIe. All nodes are connected
 using a single Infiniband fabric. This documentation covers:
 
--   Cirrus User Guide: general information on how to use Cirrus
--   Software Applications: notes on using specific software applications
-    on Cirrus
--   Software Libraries: notes on compiling against specific libraries on
-    Cirrus. Most libraries work *as expected* so no additional notes are
-    required however a small number require specific documentation
--   Software Tools: Information on using tools such as debuggers and
-    profilers on Cirrus
+- Cirrus User Guide: general information on how to use Cirrus
+- Software Applications: notes on using specific software applications
+  on Cirrus
+- Software Libraries: notes on compiling against specific libraries on
+  Cirrus. Most libraries work *as expected* so no additional notes are
+  required however a small number require specific documentation
+- Software Tools: Information on using tools such as debuggers and
+  profilers on Cirrus
 
 Information on using the SAFE web interface for managing and reporting
 on your usage on Cirrus can be found on the [Tier-2 SAFE
@@ -38,15 +38,18 @@ Documentation](https://github.com/rcgsheffield/sheffield_hpc) and the
 documentation for the [ARCHER National Supercomputing
 Service](http://www.archer.ac.uk).
 
-::: {.toctree maxdepth="2" caption="Cirrus User Guide"}
+<div class="toctree" maxdepth="2" caption="Cirrus User Guide">
+
 user-guide/network-upgrade-2023 user-guide/introduction
 user-guide/connecting user-guide/data user-guide/resource_management
 user-guide/development user-guide/batch user-guide/singularity
 user-guide/python user-guide/gpu user-guide/solidstate
 user-guide/reading
-:::
 
-::: {.toctree maxdepth="2" caption="Software Applications"}
+</div>
+
+<div class="toctree" maxdepth="2" caption="Software Applications">
+
 software-packages/castep software-packages/cp2k
 software-packages/elements software-packages/flacs
 software-packages/gaussian software-packages/gromacs
@@ -55,12 +58,17 @@ software-packages/MATLAB software-packages/namd
 software-packages/openfoam software-packages/orca software-packages/qe
 software-packages/starccm+ software-packages/vasp
 software-packages/specfem3d
-:::
 
-::: {.toctree maxdepth="2" caption="Software Libraries"}
+</div>
+
+<div class="toctree" maxdepth="2" caption="Software Libraries">
+
 software-libraries/intel_mkl software-libraries/hdf5
-:::
 
-::: {.toctree maxdepth="2" caption="Software Tools"}
+</div>
+
+<div class="toctree" maxdepth="2" caption="Software Tools">
+
 software-tools/ddt software-tools/scalasca software-tools/intel-vtune
-:::
+
+</div>

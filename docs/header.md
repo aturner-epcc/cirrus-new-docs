@@ -1,1 +1,1 @@
-![image](images/epcc_uoe_epsrc.png){.align-right}
+<img src="images/epcc_uoe_epsrc.png" class="align-right" alt="image" />

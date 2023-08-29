@@ -12,14 +12,18 @@ explanations) for the most common job types are provided below.
 Interactive jobs are also available and can be particularly useful for
 developing and debugging applications. More details are available below.
 
-::: hint
-::: title
+<div class="hint">
+
+<div class="title">
+
 Hint
-:::
+
+</div>
 
 If you have any questions on how to run jobs on Cirrus do not hesitate
 to contact the [Cirrus Service Desk](mailto:support@cirrus.ac.uk).
-:::
+
+</div>
 
 You typically interact with Slurm by issuing Slurm commands from the
 login nodes (to submit, check and cancel jobs), and by specifying Slurm
@@ -31,12 +35,11 @@ submission scripts.
 There are three key commands used to interact with the Slurm on the
 command line:
 
--   `sinfo` - Get information on the partitions and resources available
--   `sbatch jobscript.slurm` - Submit a job submission script (in this
-    case called: `jobscript.slurm`) to the scheduler
--   `squeue` - Get the current status of jobs submitted to the scheduler
--   `scancel 12345` - Cancel a job (in this case with the job ID
-    `12345`)
+- `sinfo` - Get information on the partitions and resources available
+- `sbatch jobscript.slurm` - Submit a job submission script (in this
+  case called: `jobscript.slurm`) to the scheduler
+- `squeue` - Get the current status of jobs submitted to the scheduler
+- `scancel 12345` - Cancel a job (in this case with the job ID `12345`)
 
 We cover each of these commands in more detail below.
 
@@ -94,25 +97,29 @@ will cancel (if waiting) or stop (if running) the job with ID `12345`.
 
 ## Resource Limits
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 If you have requirements which do not fit within the current QoS, please
 contact the Service Desk and we can discuss how to accommodate your
 requirements.
-:::
+
+</div>
 
 There are different resource limits on Cirrus for different purposes.
 There are three different things you need to specify for each job:
 
--   The amount of *primary resource* you require (more information on
-    this below)
--   The *partition* that you want to use - this specifies the nodes that
-    are eligible to run your job
--   The *Quality of Service (QoS)* that you want to use - this specifies
-    the job limits that apply
+- The amount of *primary resource* you require (more information on this
+  below)
+- The *partition* that you want to use - this specifies the nodes that
+  are eligible to run your job
+- The *Quality of Service (QoS)* that you want to use - this specifies
+  the job limits that apply
 
 Each of these aspects are described in more detail below.
 
@@ -122,16 +129,20 @@ nodes. Other node resources: memory on the standard compute nodes;
 memory and CPU cores on the GPU nodes are assigned pro rata based on the
 primary resource that you request.
 
-::: warning
-::: title
+<div class="warning">
+
+<div class="title">
+
 Warning
-:::
+
+</div>
 
 On Cirrus, you cannot specify the memory for a job using the `--mem`
 options to Slurm (e.g. `--mem`, `--mem-per-cpu`, `--mem-per-gpu`). The
 amount of memory you are assigned is calculated from the amount of
 primary resource you request.
-:::
+
+</div>
 
 ### Primary resources on standard (CPU) compute nodes
 
@@ -144,35 +155,47 @@ of all of the memory (256 GB) available on the node; however, if you
 request 1 core, then you will be assigned a maximum of 256/36 = 7.1 GB
 of the memory available on the node.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 Using the `--exclusive` option in jobs will give you access to the full
 node memory even if you do not explicitly request all of the CPU cores
 on the node.
-:::
 
-::: warning
-::: title
+</div>
+
+<div class="warning">
+
+<div class="title">
+
 Warning
-:::
+
+</div>
 
 Using the `--exclusive` option will charge your account for the usage of
-the entire node, even if you don\'t request all the cores in your
+the entire node, even if you don't request all the cores in your
 scripts.
-:::
 
-::: note
-::: title
+</div>
+
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 You will not generally have access to the full amount of memory resource
 on the the node as some is retained for running the operating system and
 other system processes.
-:::
+
+</div>
 
 ### Primary resources on GPU nodes
 
@@ -185,35 +208,47 @@ maximum of all of the memory (384 GB) available on the node; however, if
 you request 1 GPU card, then you will be assigned a maximum of 384/4 =
 96 GB of the memory available on the node.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 Using the `--exclusive` option in jobs will give you access to all of
 the CPU cores and the full node memory even if you do not explicitly
 request all of the GPU cards on the node.
-:::
 
-::: warning
-::: title
+</div>
+
+<div class="warning">
+
+<div class="title">
+
 Warning
-:::
+
+</div>
 
 In order to run jobs on the GPU nodes your budget must have positive GPU
 hours *and* core hours associated with it. However, only your GPU hours
 will be consumed when running these jobs.
-:::
 
-::: warning
-::: title
+</div>
+
+<div class="warning">
+
+<div class="title">
+
 Warning
-:::
+
+</div>
 
 Using the `--exclusive` option will charge your account for the usage of
-the entire node, *i.e.*, 4 GPUs, even if you don\'t request all the GPUs
+the entire node, *i.e.*, 4 GPUs, even if you don't request all the GPUs
 in your submission script.
-:::
+
+</div>
 
 ### Partitions
 
@@ -221,48 +256,45 @@ On Cirrus, compute nodes are grouped into partitions. You will have to
 specify a partition using the `--partition` option in your submission
 script. The following table has a list of active partitions on Cirrus.
 
-  -----------------------------------------------------------------------------
-  Partition   Description                         Total nodes    Notes
-                                                  available      
-  ----------- ----------------------------------- -------------- --------------
-  standard    CPU nodes with 2x 18-core Intel     352            
-              Broadwell processors                               
+| Partition | Description                                                                    | Total nodes available | Notes |
+|-----------|--------------------------------------------------------------------------------|-----------------------|-------|
+| standard  | CPU nodes with 2x 18-core Intel Broadwell processors                           | 352                   |       |
+| gpu       | GPU nodes with 4x Nvidia V100 GPU and 2x 20-core Intel Cascade Lake processors | 36                    |       |
 
-  gpu         GPU nodes with 4x Nvidia V100 GPU   36             
-              and 2x 20-core Intel Cascade Lake                  
-              processors                                         
-  -----------------------------------------------------------------------------
-
-  : Cirrus Partitions
+Cirrus Partitions
 
 You can list the active partitions using
 
     sinfo
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 you may not have access to all the available partitions.
-:::
+
+</div>
 
 ### Quality of Service (QoS)
 
 On Cirrus Quality of Service (QoS) is used alongside partitions to set
 resource limits. The following table has a list of active QoS on Cirrus.
 
-  QoS Name       Jobs Running Per User   Jobs Queued Per User   Max Walltime   Max Size                                  Applies to Partitions   Notes
-  -------------- ----------------------- ---------------------- -------------- ----------------------------------------- ----------------------- -------
-  standard       No limit                500 jobs               4 days         88 nodes (3168 cores/25%)                 standard                
-  largescale     1 job                   4 jobs                 24 hours       228 nodes (8192+ cores/65%) or 144 GPUs   standard, gpu           
-  long           5 jobs                  20 jobs                14 days        16 nodes or 8 GPUs                        standard, gpu           
-  highpriority   10 jobs                 20 jobs                4 days         140 nodes                                 standard                
-  gpu            No limit                128 jobs               4 days         64 GPUs (16 nodes/40%)                    gpu                     
-  short          1 job                   2 jobs                 20 minutes     2 nodes or 4 GPUs                         standard, gpu           
-  lowpriority    No limit                100 jobs               2 days         36 nodes (1296 cores/10%) or 16 GPUs      standard, gpu           
+| QoS Name     | Jobs Running Per User | Jobs Queued Per User | Max Walltime | Max Size                                | Applies to Partitions | Notes |
+|--------------|-----------------------|----------------------|--------------|-----------------------------------------|-----------------------|-------|
+| standard     | No limit              | 500 jobs             | 4 days       | 88 nodes (3168 cores/25%)               | standard              |       |
+| largescale   | 1 job                 | 4 jobs               | 24 hours     | 228 nodes (8192+ cores/65%) or 144 GPUs | standard, gpu         |       |
+| long         | 5 jobs                | 20 jobs              | 14 days      | 16 nodes or 8 GPUs                      | standard, gpu         |       |
+| highpriority | 10 jobs               | 20 jobs              | 4 days       | 140 nodes                               | standard              |       |
+| gpu          | No limit              | 128 jobs             | 4 days       | 64 GPUs (16 nodes/40%)                  | gpu                   |       |
+| short        | 1 job                 | 2 jobs               | 20 minutes   | 2 nodes or 4 GPUs                       | standard, gpu         |       |
+| lowpriority  | No limit              | 100 jobs             | 2 days       | 36 nodes (1296 cores/10%) or 16 GPUs    | standard, gpu         |       |
 
-  : Cirrus QoS
+Cirrus QoS
 
 You can find out the QoS that you can use by running the following
 command:
@@ -283,7 +315,7 @@ argument to `srun`. E.g.,
 srun -n 36 --kill-on-bad-exit ./my-mpi-program
 ```
 
-This can prevent effective \"hanging\" of the job until the wall time
+This can prevent effective "hanging" of the job until the wall time
 limit is reached.
 
 #### Automatic resubmission
@@ -297,49 +329,45 @@ Automatic resubmission can be enabled for a job by specifying the
 An incorrect submission will cause Slurm to return an error. Some common
 problems are listed below, with a suggestion about the likely cause:
 
--   `sbatch: unrecognized option <text>`
+- `sbatch: unrecognized option <text>`
 
-    -   One of your options is invalid or has a typo. `man sbatch` to
-        help.
+  - One of your options is invalid or has a typo. `man sbatch` to help.
 
--   `error: Batch job submission failed: No partition specified or system default partition`
+- `error: Batch job submission failed: No partition specified or system default partition`
 
-    > A `--partition=` option is missing. You must specify the partition
-    > (see the list above). This is most often `--partition=standard`.
+  > A `--partition=` option is missing. You must specify the partition
+  > (see the list above). This is most often `--partition=standard`.
 
--   `error: invalid partition specified: <partition>`
+- `error: invalid partition specified: <partition>`
 
-    > `error: Batch job submission failed: Invalid partition name specified`
-    >
-    > Check the partition exists and check the spelling is correct.
+  > `error: Batch job submission failed: Invalid partition name specified`
+  >
+  > Check the partition exists and check the spelling is correct.
 
--   `error: Batch job submission failed: Invalid account or account/partition combination specified`
+- `error: Batch job submission failed: Invalid account or account/partition combination specified`
 
-    > This probably means an invalid account has been given. Check the
-    > `--account=` options against valid accounts in SAFE.
+  > This probably means an invalid account has been given. Check the
+  > `--account=` options against valid accounts in SAFE.
 
--   `error: Batch job submission failed: Invalid qos specification`
+- `error: Batch job submission failed: Invalid qos specification`
 
-    > A QoS option is either missing or invalid. Check the script has a
-    > `--qos=` option and that the option is a valid one from the table
-    > above. (Check the spelling of the QoS is correct.)
+  > A QoS option is either missing or invalid. Check the script has a
+  > `--qos=` option and that the option is a valid one from the table
+  > above. (Check the spelling of the QoS is correct.)
 
--   `error: Your job has no time specification (--time=)...`
+- `error: Your job has no time specification (--time=)...`
 
-    > Add an option of the form `--time=hours:minutes:seconds` to the
-    > submission script. E.g., `--time=01:30:00` gives a time limit of
-    > 90 minutes.
+  > Add an option of the form `--time=hours:minutes:seconds` to the
+  > submission script. E.g., `--time=01:30:00` gives a time limit of 90
+  > minutes.
 
--   
+- `error: QOSMaxWallDurationPerJobLimit`  
+  `error: Batch job submission failed: Job violates accounting/QOS policy`
+  `(job submit limit, user's size and/or time limits)`
 
-    `error: QOSMaxWallDurationPerJobLimit`
-
-    :   `error: Batch job submission failed: Job violates accounting/QOS policy`
-        `(job submit limit, user's size and/or time limits)`
-
-        The script has probably specified a time limit which is too long
-        for the corresponding QoS. E.g., the time limit for the short
-        QoS is 20 minutes.
+  The script has probably specified a time limit which is too long for
+  the corresponding QoS. E.g., the time limit for the short QoS is 20
+  minutes.
 
 ### Slurm queued reasons
 
@@ -349,107 +377,50 @@ RUNNING, COMPLETING, and COMPLETED. The first table provides a
 description of some job state codes. The second table provides a
 description of the reasons that cause a job to be in a state.
 
-  -------------------------------------------------------------------------
-  Status          Code    Description
-  --------------- ------- -------------------------------------------------
-  PENDING         PD      Job is awaiting resource allocation.
+| Status        | Code | Description                                                                                                     |
+|---------------|------|-----------------------------------------------------------------------------------------------------------------|
+| PENDING       | PD   | Job is awaiting resource allocation.                                                                            |
+| RUNNING       | R    | Job currently has an allocation.                                                                                |
+| SUSPENDED     | S    | Job currently has an allocation.                                                                                |
+| COMPLETING    | CG   | Job is in the process of completing. Some processes on some nodes may still be active.                          |
+| COMPLETED     | CD   | Job has terminated all processes on all nodes with an exit code of zero.                                        |
+| TIMEOUT       | TO   | Job terminated upon reaching its time limit.                                                                    |
+| STOPPED       | ST   | Job has an allocation, but execution has been stopped with SIGSTOP signal. CPUS have been retained by this job. |
+| OUT_OF_MEMORY | OOM  | Job experienced out of memory error.                                                                            |
+| FAILED        | F    | Job terminated with non-zero exit code or other failure condition.                                              |
+| NODE_FAIL     | NF   | Job terminated due to failure of one or more allocated nodes.                                                   |
+| CANCELLED     | CA   | Job was explicitly cancelled by the user or system administrator. The job may or may not have been initiated.   |
 
-  RUNNING         R       Job currently has an allocation.
-
-  SUSPENDED       S       Job currently has an allocation.
-
-  COMPLETING      CG      Job is in the process of completing. Some
-                          processes on some nodes may still be active.
-
-  COMPLETED       CD      Job has terminated all processes on all nodes
-                          with an exit code of zero.
-
-  TIMEOUT         TO      Job terminated upon reaching its time limit.
-
-  STOPPED         ST      Job has an allocation, but execution has been
-                          stopped with SIGSTOP signal. CPUS have been
-                          retained by this job.
-
-  OUT_OF_MEMORY   OOM     Job experienced out of memory error.
-
-  FAILED          F       Job terminated with non-zero exit code or other
-                          failure condition.
-
-  NODE_FAIL       NF      Job terminated due to failure of one or more
-                          allocated nodes.
-
-  CANCELLED       CA      Job was explicitly cancelled by the user or
-                          system administrator. The job may or may not have
-                          been initiated.
-  -------------------------------------------------------------------------
-
-  : Slurm Job State codes
+Slurm Job State codes
 
 For a full list of see [Job State
 Codes](https://slurm.schedmd.com/squeue.html#lbAG)
 
-  ------------------------------------------------------------------------
-  Reason                 Description
-  ---------------------- -------------------------------------------------
-  Priority               One or more higher priority jobs exist for this
-                         partition or advanced reservation.
+| Reason               | Description                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Priority             | One or more higher priority jobs exist for this partition or advanced reservation.                                                                                                                                                                                                                                                                                                                                              |
+| Resources            | The job is waiting for resources to become available.                                                                                                                                                                                                                                                                                                                                                                           |
+| BadConstraints       | The job's constraints can not be satisfied.                                                                                                                                                                                                                                                                                                                                                                                     |
+| BeginTime            | The job's earliest start time has not yet been reached.                                                                                                                                                                                                                                                                                                                                                                         |
+| Dependency           | This job is waiting for a dependent job to complete.                                                                                                                                                                                                                                                                                                                                                                            |
+| Licenses             | The job is waiting for a license.                                                                                                                                                                                                                                                                                                                                                                                               |
+| WaitingForScheduling | No reason has been set for this job yet. Waiting for the scheduler to determine the appropriate reason.                                                                                                                                                                                                                                                                                                                         |
+| Prolog               | Its PrologSlurmctld program is still running.                                                                                                                                                                                                                                                                                                                                                                                   |
+| JobHeldAdmin         | The job is held by a system administrator.                                                                                                                                                                                                                                                                                                                                                                                      |
+| JobHeldUser          | The job is held by the user.                                                                                                                                                                                                                                                                                                                                                                                                    |
+| JobLaunchFailure     | The job could not be launched. This may be due to a file system problem, invalid program name, etc.                                                                                                                                                                                                                                                                                                                             |
+| NonZeroExitCode      | The job terminated with a non-zero exit code.                                                                                                                                                                                                                                                                                                                                                                                   |
+| InvalidAccount       | The job's account is invalid.                                                                                                                                                                                                                                                                                                                                                                                                   |
+| InvalidQOS           | The job's QOS is invalid.                                                                                                                                                                                                                                                                                                                                                                                                       |
+| QOSUsageThreshold    | Required QOS threshold has been breached.                                                                                                                                                                                                                                                                                                                                                                                       |
+| QOSJobLimit          | The job's QOS has reached its maximum job count.                                                                                                                                                                                                                                                                                                                                                                                |
+| QOSResourceLimit     | The job's QOS has reached some resource limit.                                                                                                                                                                                                                                                                                                                                                                                  |
+| QOSTimeLimit         | The job's QOS has reached its time limit.                                                                                                                                                                                                                                                                                                                                                                                       |
+| NodeDown             | A node required by the job is down.                                                                                                                                                                                                                                                                                                                                                                                             |
+| TimeLimit            | The job exhausted its time limit.                                                                                                                                                                                                                                                                                                                                                                                               |
+| ReqNodeNotAvail      | Some node specifically required by the job is not currently available. The node may currently be in use, reserved for another job, in an advanced reservation, DOWN, DRAINED, or not responding. Nodes which are DOWN, DRAINED, or not responding will be identified as part of the job's "reason" field as "UnavailableNodes". Such nodes will typically require the intervention of a system administrator to make available. |
 
-  Resources              The job is waiting for resources to become
-                         available.
-
-  BadConstraints         The job\'s constraints can not be satisfied.
-
-  BeginTime              The job\'s earliest start time has not yet been
-                         reached.
-
-  Dependency             This job is waiting for a dependent job to
-                         complete.
-
-  Licenses               The job is waiting for a license.
-
-  WaitingForScheduling   No reason has been set for this job yet. Waiting
-                         for the scheduler to determine the appropriate
-                         reason.
-
-  Prolog                 Its PrologSlurmctld program is still running.
-
-  JobHeldAdmin           The job is held by a system administrator.
-
-  JobHeldUser            The job is held by the user.
-
-  JobLaunchFailure       The job could not be launched. This may be due to
-                         a file system problem, invalid program name, etc.
-
-  NonZeroExitCode        The job terminated with a non-zero exit code.
-
-  InvalidAccount         The job\'s account is invalid.
-
-  InvalidQOS             The job\'s QOS is invalid.
-
-  QOSUsageThreshold      Required QOS threshold has been breached.
-
-  QOSJobLimit            The job\'s QOS has reached its maximum job count.
-
-  QOSResourceLimit       The job\'s QOS has reached some resource limit.
-
-  QOSTimeLimit           The job\'s QOS has reached its time limit.
-
-  NodeDown               A node required by the job is down.
-
-  TimeLimit              The job exhausted its time limit.
-
-  ReqNodeNotAvail        Some node specifically required by the job is not
-                         currently available. The node may currently be in
-                         use, reserved for another job, in an advanced
-                         reservation, DOWN, DRAINED, or not responding.
-                         Nodes which are DOWN, DRAINED, or not responding
-                         will be identified as part of the job\'s
-                         \"reason\" field as \"UnavailableNodes\". Such
-                         nodes will typically require the intervention of
-                         a system administrator to make available.
-  ------------------------------------------------------------------------
-
-  : Slurm Job Reasons
+Slurm Job Reasons
 
 For a full list of see [Job
 Reasons](https://slurm.schedmd.com/squeue.html#lbAF)
@@ -457,19 +428,23 @@ Reasons](https://slurm.schedmd.com/squeue.html#lbAF)
 ## Output from Slurm jobs
 
 Slurm places standard output (STDOUT) and standard error (STDERR) for
-each job in the file `slurm_<JobID>.out`. This file appears in the
-job\'s working directory once your job starts running.
+each job in the file `slurm_<JobID>.out`. This file appears in the job's
+working directory once your job starts running.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 This file is plain text and can contain useful information to help
 debugging if a job is not working as expected. The Cirrus Service Desk
 team will often ask you to provide the contents of this file if you
 contact them for help with issues.
-:::
+
+</div>
 
 ## Specifying resources in job scripts
 
@@ -477,68 +452,76 @@ You specify the resources you require for your job using directives at
 the top of your job submission script using lines that start with the
 directive `#SBATCH`.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 Options provided using `#SBATCH` directives can also be specified as
 command line options to `srun`.
-:::
+
+</div>
 
 If you do not specify any options, then the default for each option will
 be applied. As a minimum, all job submissions must specify the budget
 that they wish to charge the job too, the partition they wish to use and
 the QoS they want to use with the options:
 
-> -   `--account=<budgetID>` your budget ID is usually something like
->     `t01` or `t01-test`. You can see which budget codes you can charge
->     to in SAFE.
-> -   `--partition=<partition>` The partition specifies the set of nodes
->     you want to run on. More information on available partitions is
->     given above.
-> -   `--qos="QoS"` The QoS specifies the limits to apply to your job.
->     More information on available QoS are given above.
+> - `--account=<budgetID>` your budget ID is usually something like
+>   `t01` or `t01-test`. You can see which budget codes you can charge
+>   to in SAFE.
+> - `--partition=<partition>` The partition specifies the set of nodes
+>   you want to run on. More information on available partitions is
+>   given above.
+> - `--qos="QoS"` The QoS specifies the limits to apply to your job.
+>   More information on available QoS are given above.
 
 Other common options that are used are:
 
-> -   `--time=<hh:mm:ss>` the maximum walltime for your job. *e.g.* For
->     a 6.5 hour walltime, you would use `--time=6:30:0`.
-> -   `--job-name=<jobname>` set a name for the job to help identify it
->     in Slurm command output.
+> - `--time=<hh:mm:ss>` the maximum walltime for your job. *e.g.* For a
+>   6.5 hour walltime, you would use `--time=6:30:0`.
+> - `--job-name=<jobname>` set a name for the job to help identify it in
+>   Slurm command output.
 
 Other not so common options that are used are:
 
-> -   `--switches=max-switches{@max-time-to-wait}` optimum switches and
->     max time to wait for them. The scheduler will wait indefinitely
->     when attempting to place these jobs. Users can override this
->     indefinite wait. The scheduler will deliberately place work to
->     clear space for these jobs, so we don\'t foresee the indefinite
->     wait nature to be an issue.
+> - `--switches=max-switches{@max-time-to-wait}` optimum switches and
+>   max time to wait for them. The scheduler will wait indefinitely when
+>   attempting to place these jobs. Users can override this indefinite
+>   wait. The scheduler will deliberately place work to clear space for
+>   these jobs, so we don't foresee the indefinite wait nature to be an
+>   issue.
 
 In addition, parallel jobs will also need to specify how many nodes,
 parallel processes and threads they require.
 
-> -   `--exclusive` to ensure that you have exclusive access to a
->     compute node
-> -   `--nodes=<nodes>` the number of nodes to use for the job.
-> -   `--tasks-per-node=<processes per node>` the number of parallel
->     processes (e.g. MPI ranks) per node.
-> -   `--cpus-per-task=<threads per task>` the number of threads per
->     parallel process (e.g. number of OpenMP threads per MPI task for
->     hybrid MPI/OpenMP jobs). **Note:** you must also set the
->     `OMP_NUM_THREADS` environment variable if using OpenMP in your job
->     and usually add the `--cpu-bind=cores` option to `srun`
+> - `--exclusive` to ensure that you have exclusive access to a compute
+>   node
+> - `--nodes=<nodes>` the number of nodes to use for the job.
+> - `--tasks-per-node=<processes per node>` the number of parallel
+>   processes (e.g. MPI ranks) per node.
+> - `--cpus-per-task=<threads per task>` the number of threads per
+>   parallel process (e.g. number of OpenMP threads per MPI task for
+>   hybrid MPI/OpenMP jobs). **Note:** you must also set the
+>   `OMP_NUM_THREADS` environment variable if using OpenMP in your job
+>   and usually add the `--cpu-bind=cores` option to `srun`
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 For parallel jobs, you should request exclusive node access with the
 `--exclusive` option to ensure you get the expected resources and
 performance.
-:::
+
+</div>
 
 ## `srun`: Launching parallel jobs
 
@@ -557,28 +540,36 @@ If you are using OpenMP threads then you will generally add the
 `--cpu-bind=cores` option to `srun` to bind threads to cores to obtain
 the best performance.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 See the example job submission scripts below for examples of using
 `srun` for pure MPI jobs and for jobs that use OpenMP threading.
-:::
+
+</div>
 
 ## Example parallel job submission scripts
 
 A subset of example job submission scripts are included in full below.
 
-::: hint
-::: title
+<div class="hint">
+
+<div class="title">
+
 Hint
-:::
+
+</div>
 
 Do not replace `srun` with `mpirun` in the following examples. Although
 this might work under special circumstances, it is not guaranteed and
 therefore not supported.
-:::
+
+</div>
 
 ### Example: job submission script for MPI parallel job
 
@@ -620,29 +611,31 @@ export OMP_NUM_THREADS=1
 srun ./my_mpi_executable.x
 ```
 
-This will run your executable \"my_mpi_executable.x\" in parallel on 144
+This will run your executable "my_mpi_executable.x" in parallel on 144
 MPI processes using 4 nodes (36 cores per node, i.e. not using
 hyper-threading). Slurm will allocate 4 nodes to your job and srun will
 place 36 MPI processes on each node (one per physical core).
 
 By default, srun will launch an MPI job that uses all of the cores you
-have requested via the \"nodes\" and \"tasks-per-node\" options. If you
-want to run fewer MPI processes than cores you will need to change the
+have requested via the "nodes" and "tasks-per-node" options. If you want
+to run fewer MPI processes than cores you will need to change the
 script.
 
 For example, to run this program on 128 MPI processes you have two
 options:
 
-> -   set `--tasks-per-node=32` for an even distribution across nodes
->     (this may not always be possible depending on the exact
->     combination of nodes requested and MPI tasks required)
-> -   set the number of MPI tasks explicitly using
->     `#SBATCH --ntasks=128`
+> - set `--tasks-per-node=32` for an even distribution across nodes
+>   (this may not always be possible depending on the exact combination
+>   of nodes requested and MPI tasks required)
+> - set the number of MPI tasks explicitly using `#SBATCH --ntasks=128`
 >
-> ::: note
-> ::: title
+> <div class="note">
+>
+> <div class="title">
+>
 > Note
-> :::
+>
+> </div>
 >
 > If you specify `--ntasks` explicitly and it is not compatible with the
 > value of `tasks-per-node` then you will get a warning message from
@@ -651,7 +644,8 @@ options:
 > In this case, srun does the sensible thing and allocates MPI processes
 > as evenly as it can across nodes. For example, the second option above
 > would result in 32 MPI processes on each of the 4 nodes.
-> :::
+>
+> </div>
 
 See above for a more detailed discussion of the different `sbatch`
 options.
@@ -684,14 +678,18 @@ In the example below, we are using 4 nodes for 6 hours. There are 8 MPI
 processes in total (2 MPI processes per node) and 18 OpenMP threads per
 MPI process. This results in all 36 physical cores per node being used.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 the use of the `--cpu-bind=cores` option to generate the correct
 affinity settings.
-:::
+
+</div>
 
 ``` bash
 #!/bin/bash
@@ -768,9 +766,9 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun --cpu-bind=cores ./my_openmp_executable.x
 ```
 
-This will run your executable \"my_openmp_executable.x\" in parallel on
-36 threads. Slurm will allocate 1 node to your job and srun will place
-36 threads (one per physical core).
+This will run your executable "my_openmp_executable.x" in parallel on 36
+threads. Slurm will allocate 1 node to your job and srun will place 36
+threads (one per physical core).
 
 See above for a more detailed discussion of the different `sbatch`
 options
@@ -842,15 +840,19 @@ jobs:
 Job dependencies can be used to construct complex pipelines or chain
 together long simulations requiring multiple steps.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 The `--parsable` option to `sbatch` can simplify working with job
 dependencies. It returns the job ID in a format that can be used as the
 input to other commands.
-:::
+
+</div>
 
 For example:
 
@@ -970,16 +972,20 @@ request could not be fulfilled with the standard queues. For example,
 you require a job/jobs to run at a particular time e.g. for a
 demonstration or course.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 Reservation requests must be submitted at least 120 hours in advance of
 the reservation start time. We cannot guarantee to meet all reservation
 requests due to potential conflicts with other demands on the service
 but will do our best to meet all requests.
-:::
+
+</div>
 
 Reservations will be charged at 1.5 times the usual rate and our policy
 is that they will be charged the full rate for the entire reservation at
@@ -991,16 +997,16 @@ failure.
 To request a reservation you complete a form on SAFE:
 
 > 1.  \[Log into SAFE\](<https://safe.epcc.ed.ac.uk>)
-> 2.  Under the \"Login accounts\" menu, choose the \"Request
->     reservation\" option
+> 2.  Under the "Login accounts" menu, choose the "Request reservation"
+>     option
 
 On the first page, you need to provide the following:
 
-> -   The start time and date of the reservation.
-> -   The end time and date of the reservation.
-> -   Your justification for the reservation \-- this must be provided
->     or the request will be rejected.
-> -   The number of nodes required.
+> - The start time and date of the reservation.
+> - The end time and date of the reservation.
+> - Your justification for the reservation -- this must be provided or
+>   the request will be rejected.
+> - The number of nodes required.
 
 On the second page, you will need to specify which username you wish the
 reservation to be charged against and, once the username has been
@@ -1014,23 +1020,31 @@ the system. To submit jobs to a reservation, you need to add
 `--reservation=<reservation ID>` and `--qos=reservation` options to your
 job submission script or Slurm job submission command.
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 You must have at least 1 CPUh - and 1 GPUh for reservations on GPU
 nodes - to be able to submit jobs to reservations.
-:::
 
-::: tip
-::: title
+</div>
+
+<div class="tip">
+
+<div class="title">
+
 Tip
-:::
+
+</div>
 
 You can submit jobs to a reservation as soon as the reservation has been
 set up; jobs will remain queued until the reservation starts.
-:::
+
+</div>
 
 ## Serial jobs
 
@@ -1065,19 +1079,23 @@ export OMP_NUM_THREADS=1
 srun --cpu-bind=cores ./my_serial_executable.x
 ```
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 Remember that you will be allocated memory based on the number of tasks
-(i.e. CPU cores) that you request. You will get \~7.1 GB per task/core.
+(i.e. CPU cores) that you request. You will get ~7.1 GB per task/core.
 If you need more than this for your serial job then you should ask for
 the number of tasks you need for the required memory (or use the
 `--exclusive` option to get access to all the memory on a node) and
 launch specifying a single task using
 `srun --ntasks=1 --cpu-bind=cores`.
-:::
+
+</div>
 
 ## Temporary files and `/tmp` in batch jobs
 
@@ -1093,8 +1111,7 @@ is a memory-resident file system location specific to the current job
 capacity of main memory on the node.
 
 It is recommended that applications with significant temporary file
-space requirement should use the
-`/user-guide/solidstate`{.interpreted-text role="doc"}. E.g., a
+space requirement should use the `/user-guide/solidstate`. E.g., a
 submission script might contain:
 
     export TMPDIR="/scratch/space1/x01/auser/$SLURM_JOBID.tmp"
@@ -1106,12 +1123,16 @@ up the temporary directory at the end of your job script, e.g.
 
     rm -r $TMPDIR
 
-::: tip
-::: title
+<div class="tip">
+
+<div class="title">
+
 Tip
-:::
+
+</div>
 
 Applications should not hard-code specific locations such as `/tmp`.
 Parallel applications should further ensure that there are no collisions
 in temporary file names on separate processes/nodes.
-:::
+
+</div>

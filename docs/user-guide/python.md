@@ -35,9 +35,8 @@ See `numpy-broadcast.py` below which is a simple MPI Broadcast example,
 and the Slurm script `submit-broadcast.slurm` which demonstrates how to
 run across it two compute nodes.
 
-```{=html}
 <details><summary><b>numpy-broadcast.py</b></summary>
-```
+
 ``` python
 #!/usr/bin/env python
 
@@ -84,15 +83,13 @@ else:
             % (rank))
 ```
 
-```{=html}
 </details><br>
-```
+
 The MPI initialisation is done automatically as a result of calling
 `from mpi4py import MPI`.
 
-```{=html}
 <details><summary><b>submit-broadcast.slurm</b></summary>
-```
+
 ``` bash
 #!/bin/bash
 
@@ -114,9 +111,8 @@ export OMPI_MCA_mca_base_component_show_load_errors=0
 srun numpy-broadcast.py
 ```
 
-```{=html}
 </details><br>
-```
+
 The Slurm submission script (`submit-broadcast.slurm`) above sets a
 `OMPI_MCA` environment variable before launching the job. That
 particular variable suppresses warnings written to the job output file;
@@ -126,15 +122,14 @@ for info on all `OMPI_MCA` variables.
 
 ## mpi4py for GPU
 
-There\'s also an mpi4py module (again using OpenMPI 4.1.4) that is
+There's also an mpi4py module (again using OpenMPI 4.1.4) that is
 tailored for CUDA 11.6 on the Cirrus GPU nodes, `python/3.9.13-gpu`. We
 show below an example that features an MPI reduction performed on a
 [CuPy array](https://docs.cupy.dev/en/stable/overview.html)
 (`cupy-allreduce.py`).
 
-```{=html}
 <details><summary><b>cupy-allreduce.py</b></summary>
-```
+
 ``` python
 #!/usr/bin/env python
 
@@ -166,17 +161,15 @@ sys.stdout.write(
     % (rank, name, str(recvbuf)))
 ```
 
-```{=html}
 </details><br>
-```
-By default, the CuPy cache will be located within the user\'s home
+
+By default, the CuPy cache will be located within the user's home
 directory. And so, as `/home` is not accessible from the GPU nodes, it
 is necessary to set `CUPY_CACHE_DIR` such that the cache is on the
 `/work` file system instead.
 
-```{=html}
 <details><summary><b>submit-allreduce.slurm</b></summary>
-```
+
 ``` bash
 #!/bin/bash
 
@@ -199,9 +192,8 @@ export OMPI_MCA_mca_base_component_show_load_errors=0
 srun --ntasks=8 --tasks-per-node=4 --cpus-per-task=1 cupy-allreduce.py
 ```
 
-```{=html}
 </details><br>
-```
+
 Again, the submission script (`submit-allreduce.slurm`) is the place to
 set `OMPI_MCA` variables - the two shown are optional, see the link
 below for further details.
@@ -238,7 +230,7 @@ provided centrally.
 You can do this by creating a lightweight **virtual** environment where
 the local packages can be installed. Further, this environment is
 created on top of an existing Python installation, known as the
-environment\'s **base** Python.
+environment's **base** Python.
 
 Select the base Python by loading the `python` module you wish to
 extend, e.g., `python/3.9.13-gpu` (you can run `module avail python` to
@@ -265,17 +257,20 @@ extend-venv-activate /work/x01/x01/auser/myvenv
 ```
 
 The `extend-venv-activate` command ensures that your virtual
-environment\'s activate script loads and unloads the base `python`
-module when appropriate. You\'re now ready to activate your environment.
+environment's activate script loads and unloads the base `python` module
+when appropriate. You're now ready to activate your environment.
 
 ``` bash
 source /work/x01/x01/auser/myvenv/bin/activate
 ```
 
-::: note
-::: title
+<div class="note">
+
+<div class="title">
+
 Note
-:::
+
+</div>
 
 The path above uses a fictitious project code, `x01`, and username,
 `auser`. Please remember to replace those values with your actual
@@ -283,7 +278,8 @@ project code and username. Alternatively, you could enter
 `${HOME/home/work}` in place of `/work/x01/x01/auser`. That command
 fragment expands `${HOME}` and then replaces the `home` part with
 `work`.
-:::
+
+</div>
 
 Installing packages to your local environment can now be done as
 follows.
@@ -308,9 +304,8 @@ the local environment has been activated. So, when running code that
 requires these packages, you must first activate the environment, by
 adding the activation command to the submission script, as shown below.
 
-```{=html}
 <details><summary><b>submit-myvenv.slurm</b></summary>
-```
+
 ``` bash
 #!/bin/bash
 
@@ -328,9 +323,8 @@ source /work/x01/x01/auser/myvenv/bin/activate
 srun --ntasks=8 --tasks-per-node=4 --cpus-per-task=10 myvenv-script.py
 ```
 
-```{=html}
 </details><br>
-```
+
 Lastly, the environment being extended does not have to come from one of
 the centrally-installed `python` modules. You could just as easily
 create a local virtual environment based on one of the Machine Learning
@@ -419,9 +413,8 @@ command `conda list`. After all packages have been installed, simply run
 The submission script below shows how to use the conda environment
 within a job running on the compute nodes.
 
-```{=html}
 <details><summary><b>submit-myvenv.slurm</b></summary>
-```
+
 ``` bash
 #!/bin/bash
 
@@ -445,9 +438,8 @@ conda activate myvenv
 srun --ntasks=8 --tasks-per-node=4 --cpus-per-task=10 myvenv-script.py
 ```
 
-```{=html}
 </details><br>
-```
+
 You can see that using `conda` is less convenient compared to `pip`. In
 particular, the centrally-installed Python packages on copied in to the
 local `conda` environment, consuming some of the disk space allocated to
@@ -467,7 +459,7 @@ provided by the `python` module and not the ones supplied by `pytorch`).
 
 It is possible to view and run JupyterLab on both the login and compute
 nodes of Cirrus. Please note, you can test notebooks on the login nodes,
-but please don't attempt to run any computationally intensive work (such
+but please don’t attempt to run any computationally intensive work (such
 jobs will be killed should they reach the login node CPU limit).
 
 If you want to run your JupyterLab on a compute node, you will need to
@@ -482,12 +474,11 @@ you can start from a login node prompt.
 3.  Start the JupyterLab server by running
     `jupyter lab --ip=0.0.0.0 --no-browser`
 
-    -   once it's started, you will see some lines resembling the
-        following output.
+    - once it’s started, you will see some lines resembling the
+      following output.
 
-    ```{=html}
     <!-- -->
-    ```
+
         Or copy and paste one of these URLs:
             ...
          or http://127.0.0.1:8888/lab?token=<string>
@@ -502,23 +493,27 @@ you can start from a login node prompt.
 
     where \<username\> is your username, \<port_number\> is as shown in
     the URL from the Jupyter output and \<node_id\> is the name of the
-    node we're currently on. On a login node, this will be
+    node we’re currently on. On a login node, this will be
     `cirrus-login1`, or similar; on a compute node, it will be a mix of
     numbers and letters such as `r2i5n5`.
 
-    ::: note
-    ::: title
+    <div class="note">
+
+    <div class="title">
+
     Note
-    :::
+
+    </div>
 
     If, when you connect in the new terminal, you see a message of the
-    form [channel_setup_fwd_listener_tcpip: cannot listen to port:
-    8888]{.title-ref}, it means port 8888 is already in use. You need to
-    go back to step 3 (kill the existing jupyter lab) and retry with a
-    new explicit port number by adding the `--port=N` option. The port
-    number `N` can be in the range 5000-65535. You should then use the
-    same port number in place of 8888.
-    :::
+    form <span class="title-ref">channel_setup_fwd_listener_tcpip:
+    cannot listen to port: 8888</span>, it means port 8888 is already in
+    use. You need to go back to step 3 (kill the existing jupyter lab)
+    and retry with a new explicit port number by adding the `--port=N`
+    option. The port number `N` can be in the range 5000-65535. You
+    should then use the same port number in place of 8888.
+
+    </div>
 
 5.  Please skip this step if you are connecting from Linux or macOS. If
     you are connecting from Windows, you should use MobaXterm to
@@ -540,7 +535,7 @@ you can start from a login node prompt.
 
     5.5. At the top right, under `Remote server`, enter the name of the
     Cirrus login or compute node that you noted earlier followed by the
-    port number (e.g. [8888]{.title-ref}).
+    port number (e.g. <span class="title-ref">8888</span>).
 
     5.6. Click on the `Save` button.
 
@@ -552,15 +547,15 @@ you can start from a login node prompt.
     tell it to use the same `.ppk` private key that you normally use.
 
     5.8. The tunnel should now be configured. Click on the small start
-    button (like a play `>` icon) for the new tunnel to open it. You\'ll
-    be asked to enter your Cirrus password \-- please do so.
+    button (like a play `>` icon) for the new tunnel to open it. You'll
+    be asked to enter your Cirrus password -- please do so.
 
 6.  Now, if you open a browser window on your local machine, you should
     be able to navigate to the URL from step 3, and this should display
     the JupyterLab server.
 
-    -   Please note, you will get a connection error if you haven\'t
-        used the correct node name in step 4 or 5.
+    - Please note, you will get a connection error if you haven't used
+      the correct node name in step 4 or 5.
 
 If you are on a compute node, the JupyterLab server will be available
 for the length of the interactive session you have requested.
