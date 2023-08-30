@@ -28,9 +28,8 @@ Each type of node sees a different combination of the storage types. The
 following table shows which storage options are available on different
 node types:
 
-|             |             |               |           |
-|-------------|-------------|---------------|-----------|
 | Storage     | Login nodes | Compute nodes | Notes     |
+|-------------|-------------|---------------|-----------|
 | Home        | yes         | no            | No backup |
 | Work        | yes         | yes           | No backup |
 | Solid state | yes         | yes           | No backup |
@@ -67,7 +66,7 @@ account.
 Quota and usage data on SAFE is updated twice daily so may not be
 exactly up to date with the situation on the system itself.
 
-##### From the command line
+#### From the command line
 
 Some useful information on the current contents of directories on the
 `/home` file system is available from the command line by using the Ceph
@@ -126,19 +125,12 @@ in the future please delete it.
 
 #### Quotas on the work file system
 
-<div class="tip">
 
-<div class="title">
 
-Tip
+!!! Tip
 
-</div>
+    The capacity of the home file system is much larger than the work file system so you should store most data on home and only move data to work that you need for current running work.
 
-The capacity of the home file system is much larger than the work file
-system so you should store most data on home and only move data to work
-that you need for current running work.
-
-</div>
 
 As for the home file system, all projects are assigned a quota on the
 work file system. The project PI or manager can split this quota up
@@ -222,18 +214,13 @@ running:
 Note that the project code appears once in the path for the old home
 archive and twice in the path on the new /home file system.
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+    The capacity of the home file system is much larger than the work file system so you should move data to home rather than work.
 
-The capacity of the home file system is much larger than the work file
-system so you should move data to home rather than work.
 
-</div>
 
 ## Data transfer
 

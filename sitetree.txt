@@ -1,0 +1,94 @@
+.:
+total 28
+-rw-r--r-- 1 Clair 197609 3076 Aug 29 16:34 A2-README.md
+-rw-r--r-- 1 Clair 197609 1376 Dec 29  2021 LICENSE.txt
+-rw-r--r-- 1 Clair 197609 3087 Aug 29 17:53 README.md
+-rw-r--r-- 1 Clair 197609 3338 Dec 29  2021 README.rst
+-rw-r--r-- 1 Clair 197609 1006 Jan 24  2023 STYLE_GUIDE.md
+drwxr-xr-x 1 Clair 197609    0 Aug 30 12:46 docs/
+-rw-r--r-- 1 Clair 197609 2637 Aug 30 11:00 mkdocs.yml
+-rw-r--r-- 1 Clair 197609    0 Aug 30 12:56 sitetree.txt
+
+./docs:
+total 47
+-rw-r--r-- 1 Clair 197609   20 Dec 29  2021 CNAME
+-rw-r--r-- 1 Clair 197609 3039 Jan 24  2023 a2-index.md
+-rw-r--r-- 1 Clair 197609 4286 Jan 25  2023 favicon.ico
+-rw-r--r-- 1 Clair 197609   35 Aug 29 17:17 footer.md
+-rw-r--r-- 1 Clair 197609   73 Aug 29 17:17 header.md
+drwxr-xr-x 1 Clair 197609    0 Aug 30 12:47 images/
+-rw-r--r-- 1 Clair 197609 1917 Aug 30 11:22 index.md       float top image right and wrap
+drwxr-xr-x 1 Clair 197609    0 Aug 30 12:47 software-libraries/
+drwxr-xr-x 1 Clair 197609    0 Aug 30 12:56 software-packages/
+drwxr-xr-x 1 Clair 197609    0 Aug 30 12:46 software-tools/
+drwxr-xr-x 1 Clair 197609    0 Aug 29 16:33 stylesheets/
+drwxr-xr-x 1 Clair 197609    0 Aug 30 12:46 user-guide/
+
+./docs/images:
+total 152
+-rw-r--r-- 1 Clair 197609 35431 Dec 29  2021 cirrus_logo_white-Transparent-Background.png
+-rw-r--r-- 1 Clair 197609 33207 Dec 29  2021 epcc_logo.png
+-rw-r--r-- 1 Clair 197609 40986 Dec 29  2021 epcc_uoe_epsrc.png
+-rw-r--r-- 1 Clair 197609 22810 Dec 29  2021 epccuoe_logo.png
+-rw-r--r-- 1 Clair 197609 11332 Dec 29  2021 whiteEPCCtransp.png
+
+./docs/software-libraries:
+total 12
+-rw-r--r-- 1 Clair 197609  774 Aug 29 17:44 hdf5.md
+-rw-r--r-- 1 Clair 197609 4151 Aug 29 17:45 intel_mkl.md
+
+./docs/software-packages:
+total 124
+-rw-r--r-- 1 Clair 197609  3786 Aug 29 17:29 Ansys.md
+-rw-r--r-- 1 Clair 197609 19974 Aug 29 17:40 MATLAB.md
+-rw-r--r-- 1 Clair 197609  5982 Aug 29 17:29 altair_hw.md
+-rw-r--r-- 1 Clair 197609  2421 Aug 29 17:30 castep.md
+-rw-r--r-- 1 Clair 197609  3240 Aug 29 17:30 cp2k.md
+-rw-r--r-- 1 Clair 197609  4234 Aug 29 17:30 elements.md
+-rw-r--r-- 1 Clair 197609 11749 Aug 29 17:31 flacs.md
+-rw-r--r-- 1 Clair 197609  3926 Aug 29 17:31 gaussian.md
+-rw-r--r-- 1 Clair 197609  4832 Aug 29 17:40 gromacs.md
+-rw-r--r-- 1 Clair 197609  4149 Aug 29 17:40 helyx.md
+drwxr-xr-x 1 Clair 197609     0 Aug 29 16:42 images/
+-rw-r--r-- 1 Clair 197609  3259 Aug 29 17:40 lammps.md
+-rw-r--r-- 1 Clair 197609  2322 Aug 29 17:41 molpro.md
+-rw-r--r-- 1 Clair 197609  2724 Aug 29 17:41 namd.md
+-rw-r--r-- 1 Clair 197609  2563 Aug 29 17:42 openfoam.md
+-rw-r--r-- 1 Clair 197609  2308 Aug 29 17:42 orca.md
+-rw-r--r-- 1 Clair 197609  1538 Aug 29 17:42 qe.md
+-rw-r--r-- 1 Clair 197609  1868 Aug 29 17:43 specfem3d.md
+-rw-r--r-- 1 Clair 197609  5330 Aug 29 17:43 starccm+.md
+-rw-r--r-- 1 Clair 197609  4701 Aug 29 17:43 vasp.md
+
+./docs/software-packages/images:
+total 36
+-rw-r--r-- 1 Clair 197609 36773 Dec 29  2021 MATLAB_image1.png
+
+./docs/software-tools:
+total 20
+-rw-r--r-- 1 Clair 197609 6740 Aug 29 17:27 ddt.md
+-rw-r--r-- 1 Clair 197609 5245 Aug 29 17:27 intel-vtune.md
+-rw-r--r-- 1 Clair 197609 2374 Aug 29 17:28 scalasca.md
+
+./docs/stylesheets:
+total 1
+-rw-r--r-- 1 Clair 197609 88 Dec 29  2021 archer2.css
+
+./docs/user-guide:
+total 212
+-rw-r--r-- 1 Clair 197609 48592 Aug 29 17:18 batch.md
+-rw-r--r-- 1 Clair 197609 21438 Aug 30 12:42 connecting.md    DONE
+-rw-r--r-- 1 Clair 197609 13401 Aug 29 17:19 data.md   DONE
+-rw-r--r-- 1 Clair 197609 15661 Aug 29 17:19 development.md   DONE
+-rwxr-xr-x 1 Clair 197609  1030 Dec 29  2021 example_hybrid_hpempt.bash*
+-rwxr-xr-x 1 Clair 197609   902 Dec 29  2021 example_hybrid_impi.bash*
+-rwxr-xr-x 1 Clair 197609  1052 Dec 29  2021 example_mpi_hpempt.bash*
+-rwxr-xr-x 1 Clair 197609   868 Dec 29  2021 example_mpi_impi.bash*
+-rw-r--r-- 1 Clair 197609 17424 Aug 29 17:19 gpu.md
+-rw-r--r-- 1 Clair 197609  1497 Aug 30 11:30 introduction.md  DONE
+-rw-r--r-- 1 Clair 197609  1295 Aug 30 11:25 network-upgrade-2023.md   DONE
+-rw-r--r-- 1 Clair 197609 19091 Aug 29 17:23 python.md
+-rw-r--r-- 1 Clair 197609  2336 Aug 29 17:23 reading.md
+-rw-r--r-- 1 Clair 197609 14964 Aug 29 17:24 resource_management.md   DONE
+-rw-r--r-- 1 Clair 197609 16070 Aug 29 17:24 singularity.md
+-rw-r--r-- 1 Clair 197609  4312 Aug 29 17:25 solidstate.md

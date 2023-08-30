@@ -109,19 +109,13 @@ command will change to version 19:
 
 ## Available Compiler Suites
 
-<div class="note">
 
-<div class="title">
+!!! Note
 
-Note
 
-</div>
+    As Cirrus uses dynamic linking by default you will generally also need to load any modules you used to compile your code in your job submission script when you run your code.
 
-As Cirrus uses dynamic linking by default you will generally also need
-to load any modules you used to compile your code in your job submission
-script when you run your code.
 
-</div>
 
 ### Intel Compiler Suite
 
@@ -161,19 +155,14 @@ MPI on Cirrus is currently provided by the HPE MPT library.
 You should also consult the chapter on running jobs through the batch
 system for examples of how to run jobs compiled against MPI.
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+    By default, all compilers produce dynamic executables on Cirrus. This   means that you must load the same modules at runtime (usually in your job submission script) as you have loaded at compile time.
 
-By default, all compilers produce dynamic executables on Cirrus. This
-means that you must load the same modules at runtime (usually in your
-job submission script) as you have loaded at compile time.
 
-</div>
+
 
 ### Using HPE MPT
 
@@ -188,32 +177,18 @@ available to you.
 What you do next depends on which compiler (Intel or GCC) you wish to
 use to compile your code.
 
-<div class="note">
 
-<div class="title">
+!!! Note
 
-Note
+    We recommend that you use the Intel compiler wherever possible to compile MPI applications as this is the method officially supported and tested by HPE.
 
-</div>
 
-We recommend that you use the Intel compiler wherever possible to
-compile MPI applications as this is the method officially supported and
-tested by HPE.
 
-</div>
+!!! Note
 
-<div class="note">
+    You can always check which compiler the MPI compiler wrapper scripts are using with, for example, `mpicc -v` or `mpif90 -v`.
 
-<div class="title">
 
-Note
-
-</div>
-
-You can always check which compiler the MPI compiler wrapper scripts are
-using with, for example, `mpicc -v` or `mpif90 -v`.
-
-</div>
 
 #### Using Intel Compilers and HPE MPT
 
@@ -228,32 +203,19 @@ The compiler wrappers are then available as
 - `mpicc` - C with MPI
 - `mpicxx` - C++ with MPI
 
-<div class="note">
 
-<div class="title">
+!!! Note
 
-Note
+    The MPT compiler wrappers use GCC by default rather than the Intel compilers:
 
-</div>
+    When compiling C applications you must also specify that `mpicc` should use the `icc` compiler with, for example, `mpicc -cc=icc`. Similarly, when compiling C++ applications you must also specify that `mpicxx` should use the `icpc` compiler with, for example, `mpicxx -cxx=icpc`. (This is not required for Fortran as the `mpif90` compiler automatically uses `ifort`.) If in doubt use `mpicc -cc=icc -v` or `mpicxx -cxx=icpc -v` to see which compiler is actually being called.
 
-The MPT compiler wrappers use GCC by default rather than the Intel
-compilers:
+    Alternatively, you can set the environment variables `MPICC_CC=icc` and/or `MPICXX=icpc` to ensure the correct base compiler is used:
 
-When compiling C applications you must also specify that `mpicc` should
-use the `icc` compiler with, for example, `mpicc -cc=icc`. Similarly,
-when compiling C++ applications you must also specify that `mpicxx`
-should use the `icpc` compiler with, for example, `mpicxx -cxx=icpc`.
-(This is not required for Fortran as the `mpif90` compiler automatically
-uses `ifort`.) If in doubt use `mpicc -cc=icc -v` or
-`mpicxx -cxx=icpc -v` to see which compiler is actually being called.
+        export MPICC_CC=icc
+        export MPICXX_CXX=icpc
 
-Alternatively, you can set the environment variables `MPICC_CC=icc`
-and/or `MPICXX=icpc` to ensure the correct base compiler is used:
 
-    export MPICC_CC=icc
-    export MPICXX_CXX=icpc
-
-</div>
 
 #### Using GCC Compilers and HPE MPT
 
@@ -268,20 +230,13 @@ Compilers are then available as
 - `mpicc` - C with MPI
 - `mpicxx` - C++ with MPI
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+    HPE MPT does not support the syntax `use mpi` in Fortran applications with the GCC compiler `gfortran`. You should use the older `include "mpif.h"` syntax when using GCC compilers with `mpif90`. If you cannot change this, then use the Intel compilers with MPT.
 
-HPE MPT does not support the syntax `use mpi` in Fortran applications
-with the GCC compiler `gfortran`. You should use the older
-`include "mpif.h"` syntax when using GCC compilers with `mpif90`. If you
-cannot change this, then use the Intel compilers with MPT.
 
-</div>
 
 ### Using Intel MPI
 
@@ -297,51 +252,41 @@ Intel MPI depends on whether you are using the Intel compilers or GCC.
 You should make sure that you or any tools use the correct ones when
 building software.
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+    Although Intel MPI is available on Cirrus, HPE MPT remains the recommended and default MPI library to use when building applications.
 
-Although Intel MPI is available on Cirrus, HPE MPT remains the
-recommended and default MPI library to use when building applications.
 
-</div>
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
 
-Using Intel MPI 18 can cause warnings in your output similar to
-`no hfi units are available` or
-`The /dev/hfi1_0 device failed to appear`. These warnings can be safely
-ignored, or, if you would prefer to prevent them, you may add the line
+	Using Intel MPI 18 can cause warnings in your output similar to
+	`no hfi units are available` or
+	`The /dev/hfi1_0 device failed to appear`. These warnings can be safely
+	ignored, or, if you would prefer to prevent them, you may add the line
 
-    export I_MPI_FABRICS=shm:ofa
+    	export I_MPI_FABRICS=shm:ofa
 
-to your job scripts after loading the Intel MPI 18 module.
+	to your job scripts after loading the Intel MPI 18 module.
 
-</div>
 
-<div class="note">
 
-<div class="title">
 
-Note
 
-</div>
+!!! Note
 
-When using Intel MPI 18, you should always launch MPI tasks with `srun`,
-the supported method on Cirrus. Launches with `mpirun` or `mpiexec` will
-likely fail.
 
-</div>
+
+	When using Intel MPI 18, you should always launch MPI tasks with `srun`,
+	the supported method on Cirrus. Launches with `mpirun` or `mpiexec` will
+	likely fail.
+
+
 
 #### Using Intel Compilers and Intel MPI
 

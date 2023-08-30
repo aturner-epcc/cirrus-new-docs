@@ -9,7 +9,7 @@ Before following the process below, we assume you have set up an account
 on Cirrus through the EPCC SAFE. Documentation on how to do this can be
 found at:
 
-    [SAFE Guide for  Users](https://epcced.github.io/safe-docs/safe-for-users/)
+[SAFE Guide for  Users](https://epcced.github.io/safe-docs/safe-for-users/)
 
 This section covers the basic connection methods.
 

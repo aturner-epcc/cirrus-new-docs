@@ -26,7 +26,7 @@ During the upgrade process
  - No access to any data on the system
  - The SAFE will be available during the outage but there will be
    reduced functionality due to the unavailability of the connection to
->   Cirrus such as resetting of passwords or new account creation.
+   Cirrus such as resetting of passwords or new account creation.
 
 Submitting new work, and running work
 

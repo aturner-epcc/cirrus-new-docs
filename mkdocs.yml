@@ -10,8 +10,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
-extra_css:
-  - stylesheets/archer2.css
+extra_css:  [stylesheets/cirrus.css]
 
 site_name: Cirrus new User Documentation
 repo_url: https://github.com/EPCCed/cirrus-new-docs
