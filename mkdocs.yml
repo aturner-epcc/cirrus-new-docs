@@ -3,8 +3,8 @@ theme:
   favicon: favicon.ico
   logo: images/cirrus_logo_white-Transparent-Background.png
   palette:
-    primary: teal
-    accent: teal
+    primary: blue
+    accent:  blue
   features:
     - tabs
   icon:
@@ -21,10 +21,6 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/EPCCed
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/ARCHER2_HPC
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/groups/13848871/
   analytics:
     provider: google
     property: 
@@ -38,93 +34,48 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
-  
-
-
-  
 
 nav:
-  - "Documentation overview": index.md
-  - "Quickstart":
-    - "Overview": quick-start/overview.md
-    - "Quickstart for users": quick-start/quickstart-users.md
-    - "Quickstart for developers": quick-start/quickstart-developers.md
-    - "Quickstart next steps": quick-start/quickstart-next-steps.md
-  - "ARCHER2 Known Issues": known-issues/index.md
-  - "ARCHER2 Frequently Asked Questions":
-    - "General FAQ": faq/index.md
-    - "ARCHER2 Upgrade 2023": faq/upgrade-2023.md
-    - "ARCHER2 Network Upgrade 2023": faq/network-upgrade-2023.md
-  - "User and Best Practice Guide":
-    - "Overview": user-guide/index.md
-    - "Hardware": user-guide/hardware.md
-    - "Connecting to ARCHER2": user-guide/connecting.md
-    - "Data management and transfer": user-guide/data.md
-    - "Software environment": user-guide/sw-environment.md
-    - "Running jobs": user-guide/scheduler.md
-    - "I/O and file systems": user-guide/io.md
-    - "Application development environment": user-guide/dev-environment.md
-    - "Containers": user-guide/containers.md
-    - "Using Python": user-guide/python.md
-    - "Data analysis": user-guide/analysis.md
-    - "Debugging": user-guide/debug.md
-    - "Profiling": user-guide/profile.md
-    - "Performance tuning": user-guide/tuning.md
-    - "Energy use": user-guide/energy.md
-  - "Research Software":
-    - "Overview": research-software/index.md
-    - "CASINO": research-software/casino.md
-    - "CASTEP": research-software/castep.md
-    - "CESM2": research-software/cesm.md
-    - "Chemshell": research-software/chemshell.md
-    - "Code_Saturne": research-software/code-saturne.md
-    - "CP2K": research-software/cp2k.md
-    - "CRYSTAL": research-software/crystal.md
-    - "FHI-aims": research-software/fhi-aims.md
-    - "GROMACS": research-software/gromacs.md
-    - "LAMMPS": research-software/lammps.md
-    - "MITgcm": research-software/mitgcm.md
-    - "Met Office Unified Model": research-software/mo-unified-model.md
-    - "NAMD": research-software/namd.md
-    - "Nektar++": research-software/nektarplusplus.md
-    - "NEMO": research-software/nemo.md
-    - "NWChem": research-software/nwchem.md
-    - "ONETEP": research-software/onetep.md
-    - "OpenFOAM": research-software/openfoam.md
-    - "ORCA": research-software/orca.md
-    - "Quantum Espresso": research-software/qe.md
-    - "VASP": research-software/vasp.md
+  - "Cirrus user guide": index.md
+  - "Cirrus Network Upgrade: 2023": user-guide/network-upgrade-2023
+  - "Introduction": user-guide/introduction.md
+  - "Connecting to Cirrus": user-guide/connecting.md
+  - "Data Management and Transfer": user-guide/data.md
+  - "File and Resource Management": user-guide/resource_management.md
+  - "Application Developement Environment": user-guide/development.md
+  - "Running Jobs on Cirrus": user-guide/batch.md
+  - "Singularity Containers": user-guide/singularity.md
+  - "Using Python": user-guide/python.md
+  - "Using the Cirrus GPU Nodes": user-guide/gpu.md
+  - "Solid state storage": user-guide/solidstate.md
+  - "References and further reading": user-guide/reading.md
+  - "Software Applications":
+    - "Castep": software-packages/castep.md
+    - "CP2K": software-packages/cp2k.md
+    - "ELEMENTS": software-packages/elements.md
+    - "FLACS": software-packages/flacs.md
+    - "Gaussian": software-packages/gaussian.md
+    - "GROMACS": software-packages/gromacs.md
+    - "HELYX&reg;": software-packages/helyx.md
+    - "LAMMPS": software-packages/lammps.md
+    - "MATLAB": software-packages/MATLAB.md
+    - "NAMD": software-packages/namd.md
+    - "OpenFOAM": software-packages/openfoam.md
+    - "ORCA": software-packages/orca.md
+    - "Quantum Espresso (QE)": software-packages/qe.md
+    - "STAR-CCM+": software-packages/starccm+.md
+    - "VASP": software-packages/vasp.md
+    - "SPECFEM3D Cartesian": software-packages/specfem3d.md
   - "Software Libraries":
-    - "Overview": software-libraries/index.md
-    - "HPE Cray LibSci: BLAS, LAPACK, ScaLAPACK": software-libraries/libsci.md
-    - "FFTW": software-libraries/fftw.md
+    - "Intel MKL: BLAS, LAPACK, ScaLAPACK": software-libraries/intel_mkl.md
     - "HDF5": software-libraries/hdf5.md
-    - "NetCDF": software-libraries/netcdf.md
-    - "ADIOS": software-libraries/adios.md
-    - "AOCL": software-libraries/aocl.md
-    - "ARPACK": software-libraries/arpack.md
-    - "Boost": software-libraries/boost.md
-    - "Eigen": software-libraries/eigen.md
-    - "GLM":   software-libraries/glm.md
-    - "HYPRE": software-libraries/hypre.md
-    - "Matio": software-libraries/matio.md
-    - "Intel MKL": software-libraries/mkl.md
-    - "MESA": software-libraries/mesa.md
-    - "MUMPS": software-libraries/mumps.md
-    - "PETSc": software-libraries/petsc.md
-    - "Metis/Parmetis": software-libraries/metis.md
-    - "Scotch/PT-Scotch": software-libraries/scotch.md
-    - "SLEPc" : software-libraries/slepc.md
-    - "SuperLU/SuperLU_DIST": software-libraries/superlu.md
-    - "Trilinos": software-libraries/trilinos.md
-  - "Data Analysis and Tools":
-    - "Overview": data-tools/index.md
-    - "AMD uProf": data-tools/amd-uprof.md
-    - "Arm Forge": data-tools/arm-forge.md
-    - "Energy Counters": data-tools/pm-mpi-lib.md
-    - "Julia": data-tools/julia.md
-    - "ParaView": data-tools/paraview.md
-    - "R": data-tools/cray-r.md
-    - "VisiData": data-tools/visidata.md
-  - "Essential Skills": essentials/index.md
-  - "ARCHER2 and Publications": publish/index.md
+  - "Software Tools":
+    - "Debugging using Arm DDT": software-tools/ddt.md
+    - "Profiling using Scalasca": software-tools/scalasca.md
+    - "Intel VTune": software-tools/intel-vtune.md
+
+
+  
+
+
+

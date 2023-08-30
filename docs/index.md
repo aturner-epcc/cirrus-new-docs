@@ -38,37 +38,3 @@ Documentation](https://github.com/rcgsheffield/sheffield_hpc) and the
 documentation for the [ARCHER National Supercomputing
 Service](http://www.archer.ac.uk).
 
-<div class="toctree" maxdepth="2" caption="Cirrus User Guide">
-
-user-guide/network-upgrade-2023 user-guide/introduction
-user-guide/connecting user-guide/data user-guide/resource_management
-user-guide/development user-guide/batch user-guide/singularity
-user-guide/python user-guide/gpu user-guide/solidstate
-user-guide/reading
-
-</div>
-
-<div class="toctree" maxdepth="2" caption="Software Applications">
-
-software-packages/castep software-packages/cp2k
-software-packages/elements software-packages/flacs
-software-packages/gaussian software-packages/gromacs
-software-packages/helyx software-packages/lammps
-software-packages/MATLAB software-packages/namd
-software-packages/openfoam software-packages/orca software-packages/qe
-software-packages/starccm+ software-packages/vasp
-software-packages/specfem3d
-
-</div>
-
-<div class="toctree" maxdepth="2" caption="Software Libraries">
-
-software-libraries/intel_mkl software-libraries/hdf5
-
-</div>
-
-<div class="toctree" maxdepth="2" caption="Software Tools">
-
-software-tools/ddt software-tools/scalasca software-tools/intel-vtune
-
-</div>
