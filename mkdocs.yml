@@ -12,7 +12,7 @@ theme:
 
 extra_css:  [stylesheets/cirrus.css]
 
-site_name: Cirrus new User Documentation
+site_name: Cirrus User Documentation
 repo_url: https://github.com/EPCCed/cirrus-new-docs
 repo_name: EPCCed/cirrus-new-docs
 edit_uri: edit/main/docs/
