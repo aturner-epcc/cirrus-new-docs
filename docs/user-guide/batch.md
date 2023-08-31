@@ -12,18 +12,13 @@ explanations) for the most common job types are provided below.
 Interactive jobs are also available and can be particularly useful for
 developing and debugging applications. More details are available below.
 
-<div class="hint">
 
-<div class="title">
 
-Hint
+!!! Hint
 
-</div>
+    If you have any questions on how to run jobs on Cirrus do not hesitate to contact the [Cirrus Service Desk](mailto:support@cirrus.ac.uk).
 
-If you have any questions on how to run jobs on Cirrus do not hesitate
-to contact the [Cirrus Service Desk](mailto:support@cirrus.ac.uk).
 
-</div>
 
 You typically interact with Slurm by issuing Slurm commands from the
 login nodes (to submit, check and cancel jobs), and by specifying Slurm
@@ -97,19 +92,13 @@ will cancel (if waiting) or stop (if running) the job with ID `12345`.
 
 ## Resource Limits
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	If you have requirements which do not fit within the current QoS, please contact the Service Desk and we can discuss how to accommodate your requirements.
 
-If you have requirements which do not fit within the current QoS, please
-contact the Service Desk and we can discuss how to accommodate your
-requirements.
 
-</div>
 
 There are different resource limits on Cirrus for different purposes.
 There are three different things you need to specify for each job:
@@ -129,20 +118,18 @@ nodes. Other node resources: memory on the standard compute nodes;
 memory and CPU cores on the GPU nodes are assigned pro rata based on the
 primary resource that you request.
 
-<div class="warning">
 
-<div class="title">
 
-Warning
+!!! Warning
 
-</div>
 
-On Cirrus, you cannot specify the memory for a job using the `--mem`
-options to Slurm (e.g. `--mem`, `--mem-per-cpu`, `--mem-per-gpu`). The
-amount of memory you are assigned is calculated from the amount of
-primary resource you request.
+	
+	On Cirrus, you cannot specify the memory for a job using the `--mem`
+	options to Slurm (e.g. `--mem`, `--mem-per-cpu`, `--mem-per-gpu`). The
+	amount of memory you are assigned is calculated from the amount of
+	primary resource you request.
 
-</div>
+
 
 ### Primary resources on standard (CPU) compute nodes
 
@@ -155,47 +142,26 @@ of all of the memory (256 GB) available on the node; however, if you
 request 1 core, then you will be assigned a maximum of 256/36 = 7.1 GB
 of the memory available on the node.
 
-<div class="note">
+!!! Note
 
-<div class="title">
+	Using the `--exclusive` option in jobs will give you access to the full
+	node memory even if you do not explicitly request all of the CPU cores
+	on the node.
 
-Note
 
-</div>
+!!! Warning
 
-Using the `--exclusive` option in jobs will give you access to the full
-node memory even if you do not explicitly request all of the CPU cores
-on the node.
+	Using the `--exclusive` option will charge your account for the usage of
+	the entire node, even if you don't request all the cores in your
+	scripts.
 
-</div>
+!!! Note
 
-<div class="warning">
+	You will not generally have access to the full amount of memory resource
+	on the the node as some is retained for running the operating system and
+	other system processes.
 
-<div class="title">
 
-Warning
-
-</div>
-
-Using the `--exclusive` option will charge your account for the usage of
-the entire node, even if you don't request all the cores in your
-scripts.
-
-</div>
-
-<div class="note">
-
-<div class="title">
-
-Note
-
-</div>
-
-You will not generally have access to the full amount of memory resource
-on the the node as some is retained for running the operating system and
-other system processes.
-
-</div>
 
 ### Primary resources on GPU nodes
 
@@ -208,47 +174,30 @@ maximum of all of the memory (384 GB) available on the node; however, if
 you request 1 GPU card, then you will be assigned a maximum of 384/4 =
 96 GB of the memory available on the node.
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	Using the `--exclusive` option in jobs will give you access to all of
+	the CPU cores and the full node memory even if you do not explicitly
+	request all of the GPU cards on the node.
 
-Using the `--exclusive` option in jobs will give you access to all of
-the CPU cores and the full node memory even if you do not explicitly
-request all of the GPU cards on the node.
 
-</div>
+!!! Warning
 
-<div class="warning">
+	In order to run jobs on the GPU nodes your budget must have positive GPU
+	hours *and* core hours associated with it. However, only your GPU hours
+	will be consumed when running these jobs.
 
-<div class="title">
 
-Warning
+!!! Warning
 
-</div>
 
-In order to run jobs on the GPU nodes your budget must have positive GPU
-hours *and* core hours associated with it. However, only your GPU hours
-will be consumed when running these jobs.
+	Using the `--exclusive` option will charge your account for the usage of
+	the entire node, *i.e.*, 4 GPUs, even if you don't request all the GPUs
+	in your submission script.
 
-</div>
 
-<div class="warning">
-
-<div class="title">
-
-Warning
-
-</div>
-
-Using the `--exclusive` option will charge your account for the usage of
-the entire node, *i.e.*, 4 GPUs, even if you don't request all the GPUs
-in your submission script.
-
-</div>
 
 ### Partitions
 
@@ -267,17 +216,13 @@ You can list the active partitions using
 
     sinfo
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	you may not have access to all the available partitions.
 
-you may not have access to all the available partitions.
 
-</div>
 
 ### Quality of Service (QoS)
 
@@ -294,7 +239,7 @@ resource limits. The following table has a list of active QoS on Cirrus.
 | short        | 1 job                 | 2 jobs               | 20 minutes   | 2 nodes or 4 GPUs                       | standard, gpu         |       |
 | lowpriority  | No limit              | 100 jobs             | 2 days       | 36 nodes (1296 cores/10%) or 16 GPUs    | standard, gpu         |       |
 
-Cirrus QoS
+#### Cirrus QoS
 
 You can find out the QoS that you can use by running the following
 command:
@@ -431,20 +376,16 @@ Slurm places standard output (STDOUT) and standard error (STDERR) for
 each job in the file `slurm_<JobID>.out`. This file appears in the job's
 working directory once your job starts running.
 
-<div class="note">
 
-<div class="title">
+!!! Note
 
-Note
 
-</div>
+	This file is plain text and can contain useful information to help
+	debugging if a job is not working as expected. The Cirrus Service Desk
+	team will often ask you to provide the contents of this file if you
+	contact them for help with issues.
 
-This file is plain text and can contain useful information to help
-debugging if a job is not working as expected. The Cirrus Service Desk
-team will often ask you to provide the contents of this file if you
-contact them for help with issues.
 
-</div>
 
 ## Specifying resources in job scripts
 
@@ -452,76 +393,68 @@ You specify the resources you require for your job using directives at
 the top of your job submission script using lines that start with the
 directive `#SBATCH`.
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	Options provided using `#SBATCH` directives can also be specified as
+	command line options to `srun`.
 
-Options provided using `#SBATCH` directives can also be specified as
-command line options to `srun`.
 
-</div>
 
 If you do not specify any options, then the default for each option will
 be applied. As a minimum, all job submissions must specify the budget
 that they wish to charge the job too, the partition they wish to use and
 the QoS they want to use with the options:
 
-> - `--account=<budgetID>` your budget ID is usually something like
->   `t01` or `t01-test`. You can see which budget codes you can charge
->   to in SAFE.
-> - `--partition=<partition>` The partition specifies the set of nodes
->   you want to run on. More information on available partitions is
->   given above.
-> - `--qos="QoS"` The QoS specifies the limits to apply to your job.
->   More information on available QoS are given above.
+ - `--account=<budgetID>` your budget ID is usually something like
+   `t01` or `t01-test`. You can see which budget codes you can charge
+   to in SAFE.
+ - `--partition=<partition>` The partition specifies the set of nodes
+   you want to run on. More information on available partitions is
+   given above.
+ - `--qos="QoS"` The QoS specifies the limits to apply to your job.
+   More information on available QoS are given above.
 
 Other common options that are used are:
 
-> - `--time=<hh:mm:ss>` the maximum walltime for your job. *e.g.* For a
->   6.5 hour walltime, you would use `--time=6:30:0`.
-> - `--job-name=<jobname>` set a name for the job to help identify it in
->   Slurm command output.
+ - `--time=<hh:mm:ss>` the maximum walltime for your job. *e.g.* For a
+   6.5 hour walltime, you would use `--time=6:30:0`.
+ - `--job-name=<jobname>` set a name for the job to help identify it in
+   Slurm command output.
 
 Other not so common options that are used are:
 
-> - `--switches=max-switches{@max-time-to-wait}` optimum switches and
->   max time to wait for them. The scheduler will wait indefinitely when
->   attempting to place these jobs. Users can override this indefinite
->   wait. The scheduler will deliberately place work to clear space for
->   these jobs, so we don't foresee the indefinite wait nature to be an
->   issue.
+ - `--switches=max-switches{@max-time-to-wait}` optimum switches and
+   max time to wait for them. The scheduler will wait indefinitely when
+   attempting to place these jobs. Users can override this indefinite
+   wait. The scheduler will deliberately place work to clear space for
+   these jobs, so we don't foresee the indefinite wait nature to be an
+   issue.
 
 In addition, parallel jobs will also need to specify how many nodes,
 parallel processes and threads they require.
 
-> - `--exclusive` to ensure that you have exclusive access to a compute
->   node
-> - `--nodes=<nodes>` the number of nodes to use for the job.
-> - `--tasks-per-node=<processes per node>` the number of parallel
->   processes (e.g. MPI ranks) per node.
-> - `--cpus-per-task=<threads per task>` the number of threads per
->   parallel process (e.g. number of OpenMP threads per MPI task for
->   hybrid MPI/OpenMP jobs). **Note:** you must also set the
->   `OMP_NUM_THREADS` environment variable if using OpenMP in your job
->   and usually add the `--cpu-bind=cores` option to `srun`
+ - `--exclusive` to ensure that you have exclusive access to a compute
+   node
+ - `--nodes=<nodes>` the number of nodes to use for the job.
+ - `--tasks-per-node=<processes per node>` the number of parallel
+   processes (e.g. MPI ranks) per node.
+ - `--cpus-per-task=<threads per task>` the number of threads per
+   parallel process (e.g. number of OpenMP threads per MPI task for
+   hybrid MPI/OpenMP jobs). **Note:** you must also set the
+   `OMP_NUM_THREADS` environment variable if using OpenMP in your job
+   and usually add the `--cpu-bind=cores` option to `srun`
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	For parallel jobs, you should request exclusive node access with the
+	`--exclusive` option to ensure you get the expected resources and
+	performance.
 
-For parallel jobs, you should request exclusive node access with the
-`--exclusive` option to ensure you get the expected resources and
-performance.
 
-</div>
 
 ## `srun`: Launching parallel jobs
 
@@ -540,36 +473,27 @@ If you are using OpenMP threads then you will generally add the
 `--cpu-bind=cores` option to `srun` to bind threads to cores to obtain
 the best performance.
 
-<div class="note">
 
-<div class="title">
+!!! Note
 
-Note
+	See the example job submission scripts below for examples of using
+	`srun` for pure MPI jobs and for jobs that use OpenMP threading.
 
-</div>
 
-See the example job submission scripts below for examples of using
-`srun` for pure MPI jobs and for jobs that use OpenMP threading.
-
-</div>
 
 ## Example parallel job submission scripts
 
 A subset of example job submission scripts are included in full below.
 
-<div class="hint">
 
-<div class="title">
 
-Hint
+!!! Hint
 
-</div>
+	Do not replace `srun` with `mpirun` in the following examples. Although
+	this might work under special circumstances, it is not guaranteed and
+	therefore not supported.
 
-Do not replace `srun` with `mpirun` in the following examples. Although
-this might work under special circumstances, it is not guaranteed and
-therefore not supported.
 
-</div>
 
 ### Example: job submission script for MPI parallel job
 
@@ -624,28 +548,22 @@ script.
 For example, to run this program on 128 MPI processes you have two
 options:
 
-> - set `--tasks-per-node=32` for an even distribution across nodes
->   (this may not always be possible depending on the exact combination
->   of nodes requested and MPI tasks required)
-> - set the number of MPI tasks explicitly using `#SBATCH --ntasks=128`
->
-> <div class="note">
->
-> <div class="title">
->
-> Note
->
-> </div>
->
-> If you specify `--ntasks` explicitly and it is not compatible with the
-> value of `tasks-per-node` then you will get a warning message from
-> srun such as `srun: Warning: can't honor --ntasks-per-node set to 36`.
->
-> In this case, srun does the sensible thing and allocates MPI processes
-> as evenly as it can across nodes. For example, the second option above
-> would result in 32 MPI processes on each of the 4 nodes.
->
-> </div>
+ - set `--tasks-per-node=32` for an even distribution across nodes
+   (this may not always be possible depending on the exact combination
+   of nodes requested and MPI tasks required)
+ - set the number of MPI tasks explicitly using `#SBATCH --ntasks=128`
+
+
+!!! Note
+
+	If you specify `--ntasks` explicitly and it is not compatible with the
+	value of `tasks-per-node` then you will get a warning message from
+	srun such as `srun: Warning: can't honor --ntasks-per-node set to 36`.
+	
+	In this case, srun does the sensible thing and allocates MPI processes
+	as evenly as it can across nodes. For example, the second option above
+	would result in 32 MPI processes on each of the 4 nodes.
+
 
 See above for a more detailed discussion of the different `sbatch`
 options.
@@ -678,18 +596,14 @@ In the example below, we are using 4 nodes for 6 hours. There are 8 MPI
 processes in total (2 MPI processes per node) and 18 OpenMP threads per
 MPI process. This results in all 36 physical cores per node being used.
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	the use of the `--cpu-bind=cores` option to generate the correct
+	affinity settings.
 
-the use of the `--cpu-bind=cores` option to generate the correct
-affinity settings.
 
-</div>
 
 ``` bash
 #!/bin/bash
@@ -840,19 +754,15 @@ jobs:
 Job dependencies can be used to construct complex pipelines or chain
 together long simulations requiring multiple steps.
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	The `--parsable` option to `sbatch` can simplify working with job
+	dependencies. It returns the job ID in a format that can be used as the
+	input to other commands.
 
-The `--parsable` option to `sbatch` can simplify working with job
-dependencies. It returns the job ID in a format that can be used as the
-input to other commands.
 
-</div>
 
 For example:
 
@@ -972,20 +882,16 @@ request could not be fulfilled with the standard queues. For example,
 you require a job/jobs to run at a particular time e.g. for a
 demonstration or course.
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	Reservation requests must be submitted at least 120 hours in advance of
+	the reservation start time. We cannot guarantee to meet all reservation
+	requests due to potential conflicts with other demands on the service
+	but will do our best to meet all requests.
 
-Reservation requests must be submitted at least 120 hours in advance of
-the reservation start time. We cannot guarantee to meet all reservation
-requests due to potential conflicts with other demands on the service
-but will do our best to meet all requests.
 
-</div>
 
 Reservations will be charged at 1.5 times the usual rate and our policy
 is that they will be charged the full rate for the entire reservation at
@@ -996,17 +902,17 @@ failure.
 
 To request a reservation you complete a form on SAFE:
 
-> 1.  \[Log into SAFE\](<https://safe.epcc.ed.ac.uk>)
-> 2.  Under the "Login accounts" menu, choose the "Request reservation"
->     option
+ 1.  \[Log into SAFE\](<https://safe.epcc.ed.ac.uk>)
+ 2.  Under the "Login accounts" menu, choose the "Request reservation"
+     option
 
 On the first page, you need to provide the following:
 
-> - The start time and date of the reservation.
-> - The end time and date of the reservation.
-> - Your justification for the reservation -- this must be provided or
->   the request will be rejected.
-> - The number of nodes required.
+ - The start time and date of the reservation.
+ - The end time and date of the reservation.
+ - Your justification for the reservation -- this must be provided or
+   the request will be rejected.
+ - The number of nodes required.
 
 On the second page, you will need to specify which username you wish the
 reservation to be charged against and, once the username has been
@@ -1020,31 +926,19 @@ the system. To submit jobs to a reservation, you need to add
 `--reservation=<reservation ID>` and `--qos=reservation` options to your
 job submission script or Slurm job submission command.
 
-<div class="note">
 
-<div class="title">
+!!! Note
 
-Note
+	You must have at least 1 CPUh - and 1 GPUh for reservations on GPU
+	nodes - to be able to submit jobs to reservations.
 
-</div>
 
-You must have at least 1 CPUh - and 1 GPUh for reservations on GPU
-nodes - to be able to submit jobs to reservations.
 
-</div>
+!!! Tip
 
-<div class="tip">
+	You can submit jobs to a reservation as soon as the reservation has been
+	set up; jobs will remain queued until the reservation starts.
 
-<div class="title">
-
-Tip
-
-</div>
-
-You can submit jobs to a reservation as soon as the reservation has been
-set up; jobs will remain queued until the reservation starts.
-
-</div>
 
 ## Serial jobs
 
@@ -1079,23 +973,21 @@ export OMP_NUM_THREADS=1
 srun --cpu-bind=cores ./my_serial_executable.x
 ```
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
 
-Remember that you will be allocated memory based on the number of tasks
-(i.e. CPU cores) that you request. You will get ~7.1 GB per task/core.
-If you need more than this for your serial job then you should ask for
-the number of tasks you need for the required memory (or use the
-`--exclusive` option to get access to all the memory on a node) and
-launch specifying a single task using
-`srun --ntasks=1 --cpu-bind=cores`.
 
-</div>
+	Remember that you will be allocated memory based on the number of tasks
+	(i.e. CPU cores) that you request. You will get ~7.1 GB per task/core.
+	If you need more than this for your serial job then you should ask for
+	the number of tasks you need for the required memory (or use the
+	`--exclusive` option to get access to all the memory on a node) and
+	launch specifying a single task using
+	`srun --ntasks=1 --cpu-bind=cores`.
+
+
 
 ## Temporary files and `/tmp` in batch jobs
 
@@ -1123,16 +1015,12 @@ up the temporary directory at the end of your job script, e.g.
 
     rm -r $TMPDIR
 
-<div class="tip">
 
-<div class="title">
 
-Tip
+!!! Tip
 
-</div>
+	Applications should not hard-code specific locations such as `/tmp`.
+	Parallel applications should further ensure that there are no collisions
+	in temporary file names on separate processes/nodes.
 
-Applications should not hard-code specific locations such as `/tmp`.
-Parallel applications should further ensure that there are no collisions
-in temporary file names on separate processes/nodes.
 
-</div>

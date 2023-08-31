@@ -70,23 +70,21 @@ where `/path/to/data-dir` should be replaced with the path to the data
 directory you are wanting to copy and assuming, of course, that you have
 setup the `t01/auser` subdirectories as described above).
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
 
-If you are transferring data from your `/work` directory, these commands
-can also be added to job submission scripts running on the compute nodes
-to move data as part of the job. If you do this, remember to include the
-data transfer time in the overall walltime for the job.
 
-Data from your `/home` directory is not available from the compute nodes
-and must therefore be transferred from a login node.
+	If you are transferring data from your `/work` directory, these commands
+	can also be added to job submission scripts running on the compute nodes
+	to move data as part of the job. If you do this, remember to include the
+	data transfer time in the overall walltime for the job.
+	
+	Data from your `/home` directory is not available from the compute nodes
+	and must therefore be transferred from a login node.
 
-</div>
+
 
 ### Remote data transfer
 
@@ -102,15 +100,11 @@ laptop), you could use something like:
 You can also use commands such as `wget` and `curl` to pull data from
 external locations directly to the solid state storage.
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	You cannot transfer data from external locations in job scripts as the
+	Cirrus compute nodes do not have external network access.
 
-You cannot transfer data from external locations in job scripts as the
-Cirrus compute nodes do not have external network access.
 
-</div>

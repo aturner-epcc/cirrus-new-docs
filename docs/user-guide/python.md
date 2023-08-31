@@ -264,22 +264,16 @@ when appropriate. You're now ready to activate your environment.
 source /work/x01/x01/auser/myvenv/bin/activate
 ```
 
-<div class="note">
+!!! Note
 
-<div class="title">
+	The path above uses a fictitious project code, `x01`, and username,
+	`auser`. Please remember to replace those values with your actual
+	project code and username. Alternatively, you could enter
+	`${HOME/home/work}` in place of `/work/x01/x01/auser`. That command
+	fragment expands `${HOME}` and then replaces the `home` part with
+	`work`.
 
-Note
 
-</div>
-
-The path above uses a fictitious project code, `x01`, and username,
-`auser`. Please remember to replace those values with your actual
-project code and username. Alternatively, you could enter
-`${HOME/home/work}` in place of `/work/x01/x01/auser`. That command
-fragment expands `${HOME}` and then replaces the `home` part with
-`work`.
-
-</div>
 
 Installing packages to your local environment can now be done as
 follows.
@@ -497,23 +491,19 @@ you can start from a login node prompt.
     `cirrus-login1`, or similar; on a compute node, it will be a mix of
     numbers and letters such as `r2i5n5`.
 
-    <div class="note">
 
-    <div class="title">
 
-    Note
+    !!! Note
 
-    </div>
+	    If, when you connect in the new terminal, you see a message of the
+	    form <span class="title-ref">channel_setup_fwd_listener_tcpip:
+	    cannot listen to port: 8888</span>, it means port 8888 is already in
+	    use. You need to go back to step 3 (kill the existing jupyter lab)
+	    and retry with a new explicit port number by adding the `--port=N`
+	    option. The port number `N` can be in the range 5000-65535. You
+	    should then use the same port number in place of 8888.
 
-    If, when you connect in the new terminal, you see a message of the
-    form <span class="title-ref">channel_setup_fwd_listener_tcpip:
-    cannot listen to port: 8888</span>, it means port 8888 is already in
-    use. You need to go back to step 3 (kill the existing jupyter lab)
-    and retry with a new explicit port number by adding the `--port=N`
-    option. The port number `N` can be in the range 5000-65535. You
-    should then use the same port number in place of 8888.
 
-    </div>
 
 5.  Please skip this step if you are connecting from Linux or macOS. If
     you are connecting from Windows, you should use MobaXterm to

@@ -19,19 +19,14 @@ you are on. This includes high-speed interconnects (e.g. Infiniband),
 file systems (e.g. Lustre) and potentially other resources (such as the
 licensed Intel compilers on Cirrus).
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	Singularity only supports Linux containers. You cannot create images
+	that use Windows or macOS (this is a restriction of the containerisation
+	model rather than of Singularity).
 
-Singularity only supports Linux containers. You cannot create images
-that use Windows or macOS (this is a restriction of the containerisation
-model rather than of Singularity).
-
-</div>
 
 ## Useful Links
 
@@ -245,20 +240,16 @@ application's input and output will be read from and written to a
 location on the host; hence, it is necessary to pass a suitable bind
 path to singularity (`/path/to/input/files`).
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	The paths in the submission script that begin `/path/to` should be
+	provided by the user. All but one of these paths are host specific. The
+	exception being `APP_PATH`, which should be given a path relative to the
+	container file system.
 
-The paths in the submission script that begin `/path/to` should be
-provided by the user. All but one of these paths are host specific. The
-exception being `APP_PATH`, which should be given a path relative to the
-container file system.
 
-</div>
 
 If the Singularity image file was built according to the [Bind
 model](https://sylabs.io/guides/3.7/user-guide/mpi.html#bind-model), you
@@ -394,17 +385,13 @@ back to the original image file.
     exit
     user@cirrus-login1 ~]$ singularity build --force image.sif image.sif.sandbox
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
+	
+	Altering a container in this way will cause the associated definition
+	file to be out of step with the current image. Care should be taken to
+	keep a record of the commands that were run within the sandbox so that
+	the image can be reproduced.
 
-</div>
 
-Altering a container in this way will cause the associated definition
-file to be out of step with the current image. Care should be taken to
-keep a record of the commands that were run within the sandbox so that
-the image can be reproduced.
-
-</div>
