@@ -9,7 +9,7 @@ Serial and parallel versions of HDF5 are available on Cirrus.
 | hdf5parallel/1.10.6-intel19-mpt222 | 1.10.6          | Intel 19  | HPE MPT 2.22 |
 | hdf5parallel/1.10.6-gcc6-mpt222    | 1.10.6          | GCC 6.3.0 | HPE MPT 2.22 |
 
-Parallel HDF5 modules on Cirrus
+
 
 Instructions to install a local version of HDF5 can be found on this
 repository:

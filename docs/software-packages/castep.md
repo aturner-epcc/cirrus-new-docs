@@ -23,19 +23,14 @@ If you have a CASTEP licence and wish to have access to CASTEP on Cirrus
 please [submit a request through the
 SAFE](https://epcced.github.io/safe-docs/safe-for-users/#how-to-request-access-to-a-package-group-licensed-software-or-restricted-features).
 
-<div class="note">
 
-<div class="title">
+!!! Note
 
-Note
 
-</div>
+	CASTEP versions 19 and above require a separate licence from CASTEP
+	versions 18 and below so these are treated as two separate access
+	requests.
 
-CASTEP versions 19 and above require a separate licence from CASTEP
-versions 18 and below so these are treated as two separate access
-requests.
-
-</div>
 
 ## Running parallel CASTEP jobs
 

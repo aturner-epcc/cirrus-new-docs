@@ -68,7 +68,7 @@ following script starts the server:
     scontrol show hostnames $SLURM_NODELIST > ./starccm.launcher.host.$SLURM_JOB_ID.txt
     starccm+ -clientldlibpath /scratch/sw/libnsl/1.3.0/lib/ -ldlibpath /scratch/sw/libnsl/1.3.0/lib/ -power -podkey <PODkey> -licpath 48001@192.168.191.10 -server -machinefile ./starccm.launcher.host.$SLURM_JOB_ID.txt -np 504 -rsh ssh 
 
-You should replace "\<PODkey\>" with your PoD licence key.
+You should replace "<PODkey\>" with your PoD licence key.
 
 ### Automatically load and start a Star-CCM+ simulation
 

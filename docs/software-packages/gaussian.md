@@ -5,7 +5,7 @@ chemistry package.
 
 ## Useful Links
 
-> - [Gaussian User Guides](http://gaussian.com/techsupport/)
+ - [Gaussian User Guides](http://gaussian.com/techsupport/)
 
 ## Using Gaussian on Cirrus
 

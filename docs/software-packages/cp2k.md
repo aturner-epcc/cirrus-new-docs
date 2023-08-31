@@ -31,31 +31,31 @@ To run CP2K using MPI only, load the `cp2k` module and use the
 For example, the following script will run a CP2K job using 4 nodes (144
 cores):
 
->     #!/bin/bash
->
->     # Slurm job options (name, compute nodes, job time)
->     #SBATCH --job-name=CP2K_test
->     #SBATCH --time=0:20:0
->     #SBATCH --exclusive
->     #SBATCH --nodes=4
->     #SBATCH --tasks-per-node=36 
->     #SBATCH --cpus-per-task=1
->
->     # Replace [budget code] below with your budget code (e.g. t01)
->     #SBATCH --account=[budget code]
->     # Replace [partition name] below with your partition name (e.g. standard,gpu)
->     #SBATCH --partition=[partition name]
->     # Replace [qos name] below with your qos name (e.g. standard,long,gpu)
->     #SBATCH --qos=[qos name]
->
->     # Load CP2K
->     module load cp2k
->
->     #Ensure that no libraries are inadvertently using threading
->     export OMP_NUM_THREADS=1
->
->     # Run using input in test.inp
->     srun cp2k.popt -i test.inp
+     #!/bin/bash
+
+     # Slurm job options (name, compute nodes, job time)
+     #SBATCH --job-name=CP2K_test
+     #SBATCH --time=0:20:0
+     #SBATCH --exclusive
+     #SBATCH --nodes=4
+     #SBATCH --tasks-per-node=36 
+     #SBATCH --cpus-per-task=1
+
+     # Replace [budget code] below with your budget code (e.g. t01)
+     #SBATCH --account=[budget code]
+     # Replace [partition name] below with your partition name (e.g. standard,gpu)
+     #SBATCH --partition=[partition name]
+     # Replace [qos name] below with your qos name (e.g. standard,long,gpu)
+     #SBATCH --qos=[qos name]
+
+     # Load CP2K
+     module load cp2k
+
+     #Ensure that no libraries are inadvertently using threading
+     export OMP_NUM_THREADS=1
+
+     # Run using input in test.inp
+     srun cp2k.popt -i test.inp
 
 ## Running Parallel CP2K Jobs - MPI/OpenMP Hybrid Mode
 
@@ -65,28 +65,28 @@ To run CP2K using MPI and OpenMP, load the `cp2k` module and use the
 For example, the following script will run a CP2K job using 8 nodes,
 with 2 OpenMP threads per MPI process:
 
->     #!/bin/bash
->
->     # Slurm job options (name, compute nodes, job time)
->     #SBATCH --job-name=CP2K_test
->     #SBATCH --time=0:20:0
->     #SBATCH --exclusive
->     #SBATCH --nodes=8
->     #SBATCH --tasks-per-node=18
->     #SBATCH --cpus-per-task=2
->
->     # Replace [budget code] below with your budget code (e.g. t01)
->     #SBATCH --account=[budget code]
->     # Replace [partition name] below with your partition name (e.g. standard,gpu)
->     #SBATCH --partition=[partition name]
->     # Replace [qos name] below with your qos name (e.g. standard,long,gpu)
->     #SBATCH --qos=[qos name]
->
->     # Load CP2K
->     module load cp2k
->
->     # Set the number of threads to 2
->     export OMP_NUM_THREADS=2
->
->     # Run using input in test.inp
->     srun cp2k.psmp -i test.inp
+     #!/bin/bash
+
+     # Slurm job options (name, compute nodes, job time)
+     #SBATCH --job-name=CP2K_test
+     #SBATCH --time=0:20:0
+     #SBATCH --exclusive
+     #SBATCH --nodes=8
+     #SBATCH --tasks-per-node=18
+     #SBATCH --cpus-per-task=2
+
+     # Replace [budget code] below with your budget code (e.g. t01)
+     #SBATCH --account=[budget code]
+     # Replace [partition name] below with your partition name (e.g. standard,gpu)
+     #SBATCH --partition=[partition name]
+     # Replace [qos name] below with your qos name (e.g. standard,long,gpu)
+     #SBATCH --qos=[qos name]
+
+     # Load CP2K
+     module load cp2k
+
+     # Set the number of threads to 2
+     export OMP_NUM_THREADS=2
+
+     # Run using input in test.inp
+     srun cp2k.psmp -i test.inp

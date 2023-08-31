@@ -543,8 +543,9 @@ number of workers to determine the ideal number to use.
 Alternatively, to retrieve job results via a graphical user interface,
 use the Job Monitor (Parallel \> Monitor Jobs).
 
-<img src="images/MATLAB_image1.png"
-style="width:5.15625in;height:3.61458in" alt="image1" />
+
+<img src="../images/MATLAB_image1.png"
+ alt="image1" />
 
 ### Debugging
 

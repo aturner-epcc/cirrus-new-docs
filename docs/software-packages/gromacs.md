@@ -94,19 +94,15 @@ cores and 4 GPUs). The job is set up to run on
 <span class="title-ref">\<OMP thread count\></span> OMP threads -- you
 will need to change these variables when running your script.
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	Unlike the base version of GROMACS, the GPU version comes with only
+	MDRUN installed. For any pre- and post-processing, you will need to use
+	the non-GPU version of GROMACS.
 
-Unlike the base version of GROMACS, the GPU version comes with only
-MDRUN installed. For any pre- and post-processing, you will need to use
-the non-GPU version of GROMACS.
-
-</div>
+```
 
     #!/bin/bash --login
 
@@ -131,6 +127,8 @@ the non-GPU version of GROMACS.
     export OMP_NUM_THREADS=<OMP thread count>
     srun --ntasks=<MPI task count> --cpus-per-task=<OMP thread count> \
          gmx_mpi mdrun -ntomp <OMP thread count> -s test_calc.tpr
+
+```
 
 Information on how to assign different types of calculation to the CPU
 or GPU appears in the GROMACS documentation under [Getting good

@@ -81,22 +81,22 @@ Notes
 
 - A warning may be issued:
 
-  > amplxe: Warning: Access to /proc/kallsyms file is limited. Consider
-  > changing /proc/sys/kernel/kptr_restrict to 0 to enable resolution of
-  > OS kernel and kernel modules symbols.
+    amplxe: Warning: Access to /proc/kallsyms file is limited. Consider
+    changing /proc/sys/kernel/kptr_restrict to 0 to enable resolution of
+    OS kernel and kernel modules symbols.
 
-  This may be safely ignored.
+	This may be safely ignored.
 
 - A warning may be issued:
 
-  > amplxe: Warning: The specified data limit of 500 MB is reached. Data
-  > collection is stopped. amplxe: Collection detached.
+	amplxe: Warning: The specified data limit of 500 MB is reached. Data
+	collection is stopped. amplxe: Collection detached.
 
-  This can be safely ignored, as a working result will still be
-  obtained. It is possible to increase the limit via the `-data-limit`
-  option (500 MB is the default). However, larger data files can take an
-  extremely long time to process in the report stage at the end of the
-  run, and so the option is not recommended.
+	This can be safely ignored, as a working result will still be
+	obtained. It is possible to increase the limit via the `-data-limit`
+	option (500 MB is the default). However, larger data files can take an
+	extremely long time to process in the report stage at the end of the
+	run, and so the option is not recommended.
 
 - For Intel 20.4, the `--collect=hostspots` option has been observed to
   be problematic. We suggest it is not used.

@@ -43,19 +43,14 @@ modules required for your code and perform any other necessary setup,
 such as providing extra sbatch options, i.e., whatever is needed for
 your code to run in a normal batch job.
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	The current Arm Forge licence permits use on the Cirrus CPU nodes only.
+	The licence does not permit use of DDT/MAP for codes that run on the
+	Cirrus GPUs.
 
-The current Arm Forge licence permits use on the Cirrus CPU nodes only.
-The licence does not permit use of DDT/MAP for codes that run on the
-Cirrus GPUs.
-
-</div>
 
 Back in the DDT run window, you can click on *Parameters* in the same
 queue pane to set the partition and QoS to use, the account to which the
@@ -89,18 +84,14 @@ Linux. You can download the remote clients from the [Arm
 website](https://developer.arm.com/downloads/-/arm-forge). No licence
 file is required by a remote client.
 
-<div class="note">
 
-<div class="title">
 
-Note
+!!! Note
 
-</div>
+	The same versions of Arm Forge must be installed on the local and remote
+	systems in order to use DDT remotely.
 
-The same versions of Arm Forge must be installed on the local and remote
-systems in order to use DDT remotely.
 
-</div>
 
 To configure the remote client to connect to Cirrus, start it and then
 click on the *Remote Launch* drop-down box and click on *Configure*. In
