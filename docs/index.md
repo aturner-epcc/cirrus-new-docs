@@ -33,8 +33,7 @@ Information on using the SAFE web interface for managing and reporting
 on your usage on Cirrus can be found on the [Tier-2 SAFE
 Documentation](http://tier2-safe.readthedocs.io/en/latest/)
 
-This documentation draws on the [Sheffield Iceberg
-Documentation](https://github.com/rcgsheffield/sheffield_hpc) and the
-documentation for the [ARCHER National Supercomputing
-Service](http://www.archer.ac.uk).
+This documentation draws on the
+documentation for the [ARCHER2 National Supercomputing
+Service](http://docs.archer2.ac.uk).
 

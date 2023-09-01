@@ -35,19 +35,20 @@ markdown_extensions:
       alternate_style: true
 
 nav:
-  - "Cirrus user guide": index.md
-  - "Cirrus Network Upgrade: 2023": user-guide/network-upgrade-2023
-  - "Introduction": user-guide/introduction.md
-  - "Connecting to Cirrus": user-guide/connecting.md
-  - "Data Management and Transfer": user-guide/data.md
-  - "File and Resource Management": user-guide/resource_management.md
-  - "Application Developement Environment": user-guide/development.md
-  - "Running Jobs on Cirrus": user-guide/batch.md
-  - "Singularity Containers": user-guide/singularity.md
-  - "Using Python": user-guide/python.md
-  - "Using the Cirrus GPU Nodes": user-guide/gpu.md
-  - "Solid state storage": user-guide/solidstate.md
-  - "References and further reading": user-guide/reading.md
+  - "Overview": index.md
+  - "Frequently Asked Questions":
+    - "Cirrus Network Upgrade: 2023": user-guide/network-upgrade-2023
+  - "User Guide":
+    - "Introduction": user-guide/introduction.md
+    - "Connecting to Cirrus": user-guide/connecting.md
+    - "Data Management and Transfer": user-guide/data.md
+    - "File and Resource Management": user-guide/resource_management.md
+    - "Application Developement Environment": user-guide/development.md
+    - "Running Jobs on Cirrus": user-guide/batch.md
+    - "Singularity Containers": user-guide/singularity.md
+    - "Using Python": user-guide/python.md
+    - "Using the Cirrus GPU Nodes": user-guide/gpu.md
+    - "Solid state storage": user-guide/solidstate.md
   - "Software Applications":
     - "Castep": software-packages/castep.md
     - "CP2K": software-packages/cp2k.md
@@ -72,6 +73,7 @@ nav:
     - "Debugging using Arm DDT": software-tools/ddt.md
     - "Profiling using Scalasca": software-tools/scalasca.md
     - "Intel VTune": software-tools/intel-vtune.md
+  - "References and further reading": user-guide/reading.md
 
 
   
