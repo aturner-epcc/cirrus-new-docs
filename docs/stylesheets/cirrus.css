@@ -5,7 +5,7 @@
 
 [data-md-color-scheme=default] {
   --md-code-fg-color:#36464e;
-  --md-code-bg-color:#D3F5FD;
+  --md-code-bg-color:#f0fcff;
   --md-admonition-fg-color:var(--md-default-fg-color);
   --md-admonition-bg-color:var(--md-default-bg-color);
   --md-warning-fg-color:#000000de;
