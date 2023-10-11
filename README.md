@@ -51,7 +51,7 @@ Once Material for mkdocs is installed, you can preview the site locally using th
 ## Making changes and style guide
 
 The documentation consists of a series of Markdown files which have the `.md`
-extension. These files are then automatically converted to HTMl and
+extension. These files are then automatically converted to HTML and
 combined into the web version of the documentation by mkdocs. It is
 important that when editing the files the syntax of the Markdown files is
 followed. If there are any errors in your changes the build will fail
